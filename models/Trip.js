@@ -11,6 +11,10 @@ const tripSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    nationality: {
+      type: String,
+      required: true,
+    },
     imgSrc: {
       type: String,
       required: true,
@@ -19,19 +23,7 @@ const tripSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    acMinPrice: {
-      type: Number,
-      required: true,
-    },
-    acMaxPrice: {
-      type: Number,
-      required: true,
-    },
-    flMinPrice: {
-      type: Number,
-      required: true,
-    },
-    flMaxPrice: {
+    budget: {
       type: Number,
       required: true,
     },

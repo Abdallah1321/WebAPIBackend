@@ -5,33 +5,39 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import tripRouter from "./routes/trips.js";
+import usersRouter from "./routes/users.js";
+import authRouter from "./routes/auth.js";
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
-mongoose.set("strictQuery", false);
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+const corsOptions = {
+  origin: true,
+  credentials: true
+}
 
-    console.log("Database connected");
-  } catch (err) {
-    console.log("Database connection failed!");
+mongoose.set("strictQuery", false);
+const connect = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("Connected to DB");
+  } catch (error) {
+    throw error;
   }
 };
+
 
 //middlwares
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
-app.use("/api/trips", tripRouter);
+app.use(cors(corsOptions));
+app.use("/api/v1/trips", tripRouter);
+app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/auth", authRouter);
 
 app.listen(port, () => {
-  connectDB();
+  connect();
   console.log("server listening on port", port);
 });
