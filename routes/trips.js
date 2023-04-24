@@ -20,8 +20,8 @@ tripRouter.get('/:id', getTrip)
 tripRouter.get('/',  getAllTrips)
 
 //Search for trip
-tripRouter.get('/search', getTripBySearch)
-tripRouter.get('/getTripCount', getTripCount)
+tripRouter.get('/search/getTripBySearch', getTripBySearch)
+tripRouter.get('/search/getTripCount', getTripCount)
 
 tripRouter.get('/:id/getDetails', getDetails)
 

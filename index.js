@@ -3,6 +3,9 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import passport from "passport";
+import expressSession from "express-session";
+import "./passport.js";
 
 import tripRouter from "./routes/trips.js";
 import usersRouter from "./routes/users.js";
@@ -14,8 +17,8 @@ const port = process.env.PORT || 8000;
 
 const corsOptions = {
   origin: true,
-  credentials: true
-}
+  credentials: true,
+};
 
 mongoose.set("strictQuery", false);
 const connect = async () => {
@@ -27,12 +30,22 @@ const connect = async () => {
   }
 };
 
-
 //middlwares
 
+app.use(
+  expressSession({
+    secret: "my-secret-key",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use("/api/v1/trips", tripRouter);
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/auth", authRouter);

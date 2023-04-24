@@ -1,4 +1,5 @@
 import { response } from "express";
+import axios from "axios";
 import Trip from "../models/Trip.js";
 
 //Create a trip
@@ -94,8 +95,8 @@ export const getAllTrips = async (req, res) => {
   console.log(page);
   try {
     const trips = await Trip.find({})
-      .skip(page * 8)
-      .limit(8);
+      .skip(page * 9)
+      .limit(9);
 
     res.status(200).json({
       count: trips.length,
@@ -114,22 +115,31 @@ export const getAllTrips = async (req, res) => {
 //Search for trip
 
 export const getTripBySearch = async (req, res) => {
-  const destination = new RegExp(req.query.destName, "i");
+  const location = new RegExp(req.query.location, "i");
   const budget = parseInt(req.query.budget);
-
+  
   try {
-    const trips = await Trip.find({ destination, budget: { $gte: budget } });
+    let query = {};
+    if (location && budget) {
+      query = { location, budget: { $lte: budget } };
+    } else if (location) {
+      query = { location };
+    } else if (budget) {
+      query = { budget: { $lte: budget } };
+    }
+    
+    const trips = await Trip.find(query);
+    
 
     res.status(200).json({
       success: true,
-      count: trips.length,
-      message: "successfully found trips!",
+      message: "Successful",
       data: trips,
     });
   } catch (err) {
     res.status(404).json({
       success: false,
-      message: "No trips found!",
+      message: "Not found",
     });
   }
 };
@@ -151,10 +161,12 @@ export const getTripCount = async (req, res) => {
 export const getDetails = async (req, res) => {
   const id = req.params.id;
   try {
-    const trip = await Trip.findById(id);
-    const foodApi = `https://www.themealdb.com/api/json/v1/1/filter.php?a=Indonesian`;
-    const fetchFood = await fetch(foodApi);
-    const data = await fetchFood.json();
-    res.status(200).json(data);
-  } catch (err) {}
+    const response = await axios.get(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian`
+    );
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ message: "Error retrieving meals from MealDB API" });
+    console.log(error);
+  }
 };

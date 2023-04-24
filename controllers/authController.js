@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import passport from "passport";
 
 // Registration
 export const register = async (req, res) => {
@@ -28,10 +29,10 @@ export const register = async (req, res) => {
 // Login
 
 export const login = async (req, res) => {
-  const email = req.body.email;
+  const username = req.body.username;
 
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
 
     if (!user) {
       return res
@@ -70,3 +71,28 @@ export const login = async (req, res) => {
     res.status(500).json({ success: false, message: "Login failed!" });
   }
 };
+
+export const loginSuccess = async (req, res) => {
+  if(req.user){
+    res.status(200).json({
+      error: false,
+      message: "Succesfully Logged in",
+      user: req.user
+    })
+
+  } else{
+    res.status(403).json({error: true, message: "Not Authorized"})
+  }
+}
+
+export const loginFail = async (req, res) => {
+  res.status(401).json({
+    error: true,
+    message: "Log in failure"
+  })
+}
+
+export const logout = async (req, res) =>{
+  req.logout()
+  res.redirect(process.env.CLIENT_URL)
+}
