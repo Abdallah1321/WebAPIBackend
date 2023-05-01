@@ -31,6 +31,7 @@ const tripSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    activities: [String]
   },
   { timestamps: true }
 );

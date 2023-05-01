@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import passport from "passport";
-import expressSession from "express-session";
+import cookieSession from "cookie-session";
 import "./passport.js";
 
 import tripRouter from "./routes/trips.js";
@@ -33,10 +33,10 @@ const connect = async () => {
 //middlwares
 
 app.use(
-  expressSession({
-    secret: "my-secret-key",
-    resave: false,
-    saveUninitialized: false,
+  cookieSession({
+    name: "session",
+    keys: ["abdallah"],
+    maxAge: 24 * 60 * 60 * 100,
   })
 );
 app.use(express.json());

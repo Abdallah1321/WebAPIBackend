@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
@@ -20,6 +20,7 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    saved: [{ type: mongoose.Schema.Types.ObjectId, ref: "Trip"}]
   },
   { timestamps: true }
 );

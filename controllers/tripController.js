@@ -1,6 +1,10 @@
 import { response } from "express";
 import axios from "axios";
+import dotenv from "dotenv";
 import Trip from "../models/Trip.js";
+import User from "../models/User.js";
+
+dotenv.config();
 
 //Create a trip
 
@@ -117,7 +121,7 @@ export const getAllTrips = async (req, res) => {
 export const getTripBySearch = async (req, res) => {
   const location = new RegExp(req.query.location, "i");
   const budget = parseInt(req.query.budget);
-  
+
   try {
     let query = {};
     if (location && budget) {
@@ -127,9 +131,8 @@ export const getTripBySearch = async (req, res) => {
     } else if (budget) {
       query = { budget: { $lte: budget } };
     }
-    
+
     const trips = await Trip.find(query);
-    
 
     res.status(200).json({
       success: true,
@@ -141,6 +144,17 @@ export const getTripBySearch = async (req, res) => {
       success: false,
       message: "Not found",
     });
+  }
+};
+
+export const saveTrip = async (req, res) => {
+  const { _id } = req.user;
+  const { tripId } = req.body;
+  try {
+    const user = User.findById(_id);
+    const alreadySaved = user.saved
+  } catch (error) {
+    res.status(500).json({ success: false, message: "failed to save trip" });
   }
 };
 
@@ -158,15 +172,50 @@ export const getTripCount = async (req, res) => {
 
 //3rd party apis
 
-export const getDetails = async (req, res) => {
+export const getWeather = async (req, res) => {
   const id = req.params.id;
+  console.log(id);
   try {
+    const trip = await Trip.findById(id);
+    console.log(trip.destName);
     const response = await axios.get(
-      `https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian`
+      `https://api.openweathermap.org/data/2.5/weather?q=${trip.destName}&appid=${process.env.WEATHER_API_KEY}&units=metric`
     );
-    res.json(response.data);
+    res.json({ data: response.data.main.temp });
   } catch (error) {
-    res.status(500).json({ message: "Error retrieving meals from MealDB API" });
+    res.status(500).json("Error retrieving Weather");
+    console.log(error);
+  }
+};
+
+export const getFood = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  try {
+    const trip = await Trip.findById(id);
+    console.log(trip.nationality);
+    const response = await axios.get(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?a=${trip.nationality}`
+    );
+    const data = response.data.meals[0].strMeal;
+    console.log(data);
+    res.json({ data: response.data.meals[0].strMeal });
+  } catch (error) {
+    res.status(500).json({ message: "Error retrieving Food" });
+    console.log(error);
+  }
+};
+
+export const getCurrency = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  try {
+    const trip = await Trip.findById(id);
+    console.log(trip.exCode);
+    const response = await axios.get(`https://free.currconv.com`);
+    res.json(response.data.main.temp);
+  } catch (error) {
+    res.status(500).json({ message: "Error retrieving Weather" });
     console.log(error);
   }
 };

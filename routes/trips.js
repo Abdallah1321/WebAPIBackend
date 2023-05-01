@@ -1,5 +1,5 @@
 import express from 'express'
-import { createTrip, deleteTrip, getAllTrips, getDetails, getTrip, getTripBySearch, getTripCount, updateTrip } from '../controllers/tripController.js'
+import { createTrip, deleteTrip, getAllTrips, getWeather, getTrip, getTripBySearch, getTripCount, updateTrip, getFood } from '../controllers/tripController.js'
 import { verifyAdmin } from '../utils/verifyToken.js'
 
 const tripRouter = express.Router()
@@ -23,6 +23,8 @@ tripRouter.get('/',  getAllTrips)
 tripRouter.get('/search/getTripBySearch', getTripBySearch)
 tripRouter.get('/search/getTripCount', getTripCount)
 
-tripRouter.get('/:id/getDetails', getDetails)
+tripRouter.get('/:id/getWeather', getWeather)
+tripRouter.get('/:id/getFood', getFood)
+tripRouter.get('/:id/getExchange', getFood)
 
 export default tripRouter
