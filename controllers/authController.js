@@ -9,8 +9,7 @@ export const register = async (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
 
-    
-
+  
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
@@ -74,26 +73,6 @@ export const login = async (req, res) => {
     res.status(500).json({ success: false, message: "Login failed!" });
   }
 };
-
-export const loginSuccess = async (req, res) => {
-  if(req.user){
-    res.status(200).json({
-      error: false,
-      message: "Succesfully Logged in",
-      user: req.user
-    })
-
-  } else{
-    res.status(403).json({error: true, message: "Not Authorized"})
-  }
-}
-
-export const loginFail = async (req, res) => {
-  res.status(401).json({
-    error: true,
-    message: "Log in failure"
-  })
-}
 
 export const logout = async (req, res) =>{
   req.logout()
