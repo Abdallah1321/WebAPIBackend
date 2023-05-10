@@ -1,30 +1,39 @@
-import express from 'express'
-import { createTrip, deleteTrip, getAllTrips, getWeather, getTrip, getTripBySearch, getTripCount, updateTrip, getFood } from '../controllers/tripController.js'
-import { verifyAdmin } from '../utils/verifyToken.js'
+import express from "express";
+import {
+  createTrip,
+  deleteTrip,
+  getAllTrips,
+  getWeather,
+  getTrip,
+  getTripBySearch,
+  updateTrip,
+  getFood,
+  getCurrency,
+} from "../controllers/tripController.js";
+import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 
-const tripRouter = express.Router()
+const tripRouter = express.Router();
 
 //Create trip
-tripRouter.post('/', verifyAdmin, createTrip)
+tripRouter.post("/", verifyAdmin, createTrip);
 
 //Update trip
-tripRouter.put('/:id', verifyAdmin, updateTrip)
+tripRouter.put("/:id", verifyAdmin, updateTrip);
 
 //Delete trip
-tripRouter.delete('/:id', verifyAdmin, deleteTrip)
+tripRouter.delete("/:id", verifyAdmin, deleteTrip);
 
 //Get trip
-tripRouter.get('/:id', getTrip)
+tripRouter.get("/:id", getTrip);
 
 //Get all trip
-tripRouter.get('/',  getAllTrips)
+tripRouter.get("/", getAllTrips);
 
 //Search for trip
-tripRouter.get('/search/getTripBySearch', getTripBySearch)
-tripRouter.get('/search/getTripCount', getTripCount)
+tripRouter.get("/search/getTripBySearch", getTripBySearch);
 
-tripRouter.get('/:id/getWeather', getWeather)
-tripRouter.get('/:id/getFood', getFood)
-tripRouter.get('/:id/getExchange', getFood)
+tripRouter.get("/:id/getWeather", getWeather);
+tripRouter.get("/:id/getFood", getFood);
+tripRouter.get("/:id/getExchange", getCurrency);
 
-export default tripRouter
+export default tripRouter;

@@ -95,15 +95,9 @@ export const getTrip = async (req, res) => {
 //Get all trip details
 
 export const getAllTrips = async (req, res) => {
-  const page = parseInt(req.query.page);
-  console.log(page);
   try {
-    const trips = await Trip.find({})
-      .skip(page * 9)
-      .limit(9);
-
+    const trips = await Trip.find()
     res.status(200).json({
-      count: trips.length,
       success: true,
       message: "Fetched all trips!",
       data: trips,
@@ -147,17 +141,6 @@ export const getTripBySearch = async (req, res) => {
   }
 };
 
-export const saveTrip = async (req, res) => {
-  const { _id } = req.user;
-  const { tripId } = req.body;
-  try {
-    const user = User.findById(_id);
-    const alreadySaved = user.saved
-  } catch (error) {
-    res.status(500).json({ success: false, message: "failed to save trip" });
-  }
-};
-
 //Get all trip details
 
 export const getTripCount = async (req, res) => {
@@ -193,7 +176,7 @@ export const getFood = async (req, res) => {
   console.log(id);
   try {
     const trip = await Trip.findById(id);
-    console.log(trip.nationality);
+    console.log(trip.exCode);
     const response = await axios.get(
       `https://www.themealdb.com/api/json/v1/1/filter.php?a=${trip.nationality}`
     );
@@ -212,10 +195,10 @@ export const getCurrency = async (req, res) => {
   try {
     const trip = await Trip.findById(id);
     console.log(trip.exCode);
-    const response = await axios.get(`https://free.currconv.com`);
-    res.json(response.data.main.temp);
+    const response = await axios.get(`https://free.currconv.com/api/v7/convert?q=${trip.exCode}_EGP&compact=ultra&apiKey=${process.env.CURRENCY_API_KEY}`);
+    res.json(response.data[`${trip.exCode}_EGP`]);
   } catch (error) {
-    res.status(500).json({ message: "Error retrieving Weather" });
+    res.status(500).json({ message: "Error retrieving exchange rate" });
     console.log(error);
   }
 };

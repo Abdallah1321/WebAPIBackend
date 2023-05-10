@@ -31,7 +31,7 @@ export const getUser = async(req, res, next) =>{
 export const getUsers = async(req, res, next) =>{
     try{
         const Users = await User.find()
-        res.status(200).json(Users)
+        res.status(200).json({message: "success", data: Users})
     }catch(err){
         next(err)
     }

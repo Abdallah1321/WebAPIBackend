@@ -23,6 +23,22 @@ const tripSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    accomodation: {
+      type: Number,
+      required: true,
+    },
+    flights: {
+      type: Number,
+      required: true,
+    },
+    transport: {
+      type: Number,
+      required: true,
+    },
+    meals: {
+      type: Number,
+      required: true,
+    },
     budget: {
       type: Number,
       required: true,
@@ -31,7 +47,6 @@ const tripSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    activities: [String]
   },
   { timestamps: true }
 );
