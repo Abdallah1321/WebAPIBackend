@@ -16,7 +16,7 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "http://localhost:3001"],
+  origin: ["http://localhost:3000", "http://localhost:3001", "https://triphopper-umjh.onrender.com", "https://admin-triphopper.onrender.com"],
   credentials: true,
 };
 
