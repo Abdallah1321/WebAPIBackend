@@ -1,5 +1,5 @@
 import express from "express";
-import { login, loginFail, loginSuccess, logout, register } from "../controllers/authController.js";
+import { login, logout, register } from "../controllers/authController.js";
 import passport from "passport";
 import { verifyToken } from "../utils/verifyToken.js";
 
