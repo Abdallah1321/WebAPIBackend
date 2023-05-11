@@ -16,10 +16,15 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "http://localhost:3001", "https://triphopper-umjh.onrender.com", "https://admin-triphopper.onrender.com/"],
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://triphopper-umjh.onrender.com",
+    "https://admin-triphopper.onrender.com/",
+  ],
   credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
-
 
 mongoose.set("strictQuery", false);
 const connect = async () => {
@@ -43,7 +48,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
-app.options('*', cors())
+app.options("*", cors());
 
 app.use(passport.initialize());
 app.use(passport.session());
