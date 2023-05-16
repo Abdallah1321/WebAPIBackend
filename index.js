@@ -19,8 +19,8 @@ const corsOptions = {
   origin: [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://triphopper-umjh.onrender.com",
-    "https://admin-triphopper.onrender.com/",
+    "https://triphopper.netlify.app",
+    "https://admin-triphopper.netlify.app"
   ],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
