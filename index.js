@@ -3,9 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import passport from "passport";
 import cookieSession from "cookie-session";
-import "./passport.js";
+
 
 import tripRouter from "./routes/trips.js";
 import usersRouter from "./routes/users.js";
@@ -47,9 +46,6 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use("/api/v1/trips", tripRouter);
 app.use("/api/v1/users", usersRouter);
