@@ -23,7 +23,6 @@ const corsOptions = {
     "https://admin-triphopper.netlify.app"
   ],
   credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 mongoose.set("strictQuery", false);
@@ -48,7 +47,6 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
-app.options("*", cors());
 
 app.use(passport.initialize());
 app.use(passport.session());
