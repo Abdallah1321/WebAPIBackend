@@ -14,4 +14,4 @@ const oauthSchema = new mongoose.Schema({
     }
 })
 
-model.exports = mongoose.model('Oauth', oauthSchema)
+export default mongoose.model("Oauth", oauthSchema);

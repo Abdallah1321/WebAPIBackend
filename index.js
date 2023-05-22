@@ -9,6 +9,10 @@ import cookieSession from "cookie-session";
 import tripRouter from "./routes/trips.js";
 import usersRouter from "./routes/users.js";
 import authRouter from "./routes/auth.js";
+import oauthRouter from "./routes/oauth.js"; 
+import { checkOauthKey } from "./controllers/oauthController.js"; 
+
+
 
 dotenv.config();
 const app = express();
@@ -47,7 +51,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
 
-app.use("/api/v1/trips", tripRouter);
+app.use("/api/v1/oauth", oauthRouter);
+app.use("/api/v1/trips", checkOauthKey, tripRouter);
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/auth", authRouter);
 
