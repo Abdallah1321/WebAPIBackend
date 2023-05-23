@@ -6,17 +6,20 @@ import passport from "passport";
 // Registration
 export const register = async (req, res) => {
   try {
+
+    //create salt and hash function using bcrypt
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
 
-  
+    //create new user based on request body
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
       isAdmin: req.body.isAdmin,
       password: hash,
     });
-
+    
+    //save user in the database
     await newUser.save();
     res
       .status(200)
@@ -33,6 +36,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   const username = req.body.username;
 
+  //check if entered username exists in database
   try {
     const user = await User.findOne({ username });
 
@@ -42,6 +46,7 @@ export const login = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
 
+    // check credentials
     const checkCredentials = await bcrypt.compare(req.body.password, user.password);
 
     if (!checkCredentials) {
@@ -52,6 +57,8 @@ export const login = async (req, res) => {
     }
 
     const { password, isAdmin, ...OtherInfo } = user._doc;
+    
+    //create token using jwt and send it as cookie
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT_SECRET,

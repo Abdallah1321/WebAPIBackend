@@ -5,6 +5,7 @@ import { verifyToken } from "../utils/verifyToken.js";
 
 const authRouter = express.Router();
 
+// auth routes using auth controller
 authRouter.post("/register", register);
 authRouter.post("/login", login);
 

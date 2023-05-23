@@ -14,6 +14,6 @@ usersRouter.delete("/:id", verifyUser, deleteUser)
 usersRouter.get("/:id", verifyUser, getUser)
 
 //GET ALL
-usersRouter.get("/", getUsers)
+usersRouter.get("/", verifyAdmin, getUsers)
 
 export default usersRouter

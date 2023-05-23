@@ -32,6 +32,7 @@ tripRouter.get("/", getAllTrips);
 //Search for trip
 tripRouter.get("/search/getTripBySearch", getTripBySearch);
 
+//3rd party apis
 tripRouter.get("/:id/getWeather", getWeather);
 tripRouter.get("/:id/getFood", getFood);
 tripRouter.get("/:id/getExchange", getCurrency);

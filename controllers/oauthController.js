@@ -1,10 +1,13 @@
 import Oauth from "../models/Oauth.js";
 import bcrypt from "bcryptjs";
 
+// get oauth key with the clientid and secret
 export const getOauthKey = async (req, res, next) => {
+  //clientid and secret are passed as headers
   const clientId = req.headers.clientid;
   const secret = req.headers.secret;
 
+  //check if the data exists in database
   let oauthData = await Oauth.findOne({clientId, secret})
 
   if (!oauthData) {
@@ -14,10 +17,14 @@ export const getOauthKey = async (req, res, next) => {
     });
   }
 
+  //set key as the key defined in database
   let key = oauthData.key;
 
+  //if there is no key, generate a key
   if (!key) {
+    //use hashing function to secure key
     key = bcrypt.hashSync(clientId + secret);
+    //update key in database 
     oauthData = await Oauth.findByIdAndUpdate(
       oauthData._id,
       { key },
@@ -25,9 +32,11 @@ export const getOauthKey = async (req, res, next) => {
     );
   }
 
+  //send key as response
   res.status(200).json({ key });
 };
 
+//middleware to check if oauthkey is valid
 export const checkOauthKey = async (req, res, next) => {
   const oauthKey = req.headers.key;
 
@@ -38,6 +47,7 @@ export const checkOauthKey = async (req, res, next) => {
     });
   }
 
+  //check if key is valid
   const key = await Oauth.findOne({ key: oauthKey });
 
   if (!key) {

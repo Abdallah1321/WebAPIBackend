@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//create trip schema
 const tripSchema = new mongoose.Schema(
   {
     destName: {
