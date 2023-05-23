@@ -1,0 +1,3085 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TripHopper API",
+    "description": "This is the API documentation for the TripHopper web application. TripHopper is a trip planner website which allows users to filter for different destinations they want to go to. They can filter by location, or budget, or both.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "TripHopper",
+      "email": "triphopper@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://triphopper-production.up.railway.app"
+    }
+  ],
+  "paths": {
+    "/api/v1/trips": {
+      "post": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Create Trip Success",
+        "description": "Create Trip Success",
+        "operationId": "createTripSuccess",
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3Mzg3MywiZXhwIjoxNjg0ODYwMjczfQ.o60JgMTzoa89KghzqV2YKmNauO6cyr_UsSn3HNK1Ugo"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "accomodation": {
+                    "type": "number",
+                    "example": 5000
+                  },
+                  "budget": {
+                    "type": "number",
+                    "example": 15000
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront."
+                  },
+                  "destName": {
+                    "type": "string",
+                    "example": "Alexandria"
+                  },
+                  "exCode": {
+                    "type": "string",
+                    "example": "EGP"
+                  },
+                  "flights": {
+                    "type": "number",
+                    "example": 5000
+                  },
+                  "imgSrc": {
+                    "type": "string",
+                    "example": "https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                  },
+                  "location": {
+                    "type": "string",
+                    "example": "Egypt"
+                  },
+                  "meals": {
+                    "type": "number",
+                    "example": 3000
+                  },
+                  "nationality": {
+                    "type": "string",
+                    "example": "Egyptian"
+                  },
+                  "transport": {
+                    "type": "number",
+                    "example": 2000
+                  }
+                }
+              },
+              "example": {
+                "accomodation": 5000,
+                "budget": 15000,
+                "description": "Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.",
+                "destName": "Alexandria",
+                "exCode": "EGP",
+                "flights": 5000,
+                "imgSrc": "https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+                "location": "Egypt",
+                "meals": 3000,
+                "nationality": "Egyptian",
+                "transport": 2000
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Create Trip Success",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "1017"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:36:26 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3f9-fd6QT9ATgoJUOfAFerfnKb7ru20\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "__v": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "_id": {
+                          "type": "string",
+                          "example": "646b9a0a1cc65fe2781961d3"
+                        },
+                        "accomodation": {
+                          "type": "number",
+                          "example": 5000
+                        },
+                        "budget": {
+                          "type": "number",
+                          "example": 15000
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2023-05-22T16:36:26.885Z"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront."
+                        },
+                        "destName": {
+                          "type": "string",
+                          "example": "Alexandria"
+                        },
+                        "exCode": {
+                          "type": "string",
+                          "example": "EGP"
+                        },
+                        "flights": {
+                          "type": "number",
+                          "example": 5000
+                        },
+                        "imgSrc": {
+                          "type": "string",
+                          "example": "https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                        },
+                        "location": {
+                          "type": "string",
+                          "example": "Egypt"
+                        },
+                        "meals": {
+                          "type": "number",
+                          "example": 3000
+                        },
+                        "nationality": {
+                          "type": "string",
+                          "example": "Egyptian"
+                        },
+                        "transport": {
+                          "type": "number",
+                          "example": 2000
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2023-05-22T16:36:26.885Z"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully created trip!"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Create Trip Success": {
+                    "value": {
+                      "data": {
+                        "__v": 0,
+                        "_id": "646b9a0a1cc65fe2781961d3",
+                        "accomodation": 5000,
+                        "budget": 15000,
+                        "createdAt": "2023-05-22T16:36:26.885Z",
+                        "description": "Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.",
+                        "destName": "Alexandria",
+                        "exCode": "EGP",
+                        "flights": 5000,
+                        "imgSrc": "https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+                        "location": "Egypt",
+                        "meals": 3000,
+                        "nationality": "Egyptian",
+                        "transport": 2000,
+                        "updatedAt": "2023-05-22T16:36:26.885Z"
+                      },
+                      "message": "Successfully created trip!",
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/": {
+      "get": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Get All Trips",
+        "description": "Get All Trips",
+        "operationId": "getAllTrips",
+        "responses": {
+          "200": {
+            "description": "Get Trip",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "13657"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:36:10 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3559-1cQ0edy6uLV5ff8QpgM78XyA3HI\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "__v": {
+                            "type": "number",
+                            "example": 0
+                          },
+                          "_id": {
+                            "type": "string",
+                            "example": "644165f968af286f7c14466e"
+                          },
+                          "accomodation": {
+                            "type": "number",
+                            "example": 1500
+                          },
+                          "budget": {
+                            "type": "number",
+                            "example": 3000
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2023-04-20T16:19:05.665Z"
+                          },
+                          "description": {
+                            "type": "string",
+                            "example": "London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its center stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex and the entire city."
+                          },
+                          "destName": {
+                            "type": "string",
+                            "example": "London"
+                          },
+                          "exCode": {
+                            "type": "string",
+                            "example": "GBP"
+                          },
+                          "flights": {
+                            "type": "number",
+                            "example": 1000
+                          },
+                          "imgSrc": {
+                            "type": "string",
+                            "example": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                          },
+                          "location": {
+                            "type": "string",
+                            "example": "United Kingdom"
+                          },
+                          "meals": {
+                            "type": "number",
+                            "example": 250
+                          },
+                          "nationality": {
+                            "type": "string",
+                            "example": "British"
+                          },
+                          "transport": {
+                            "type": "number",
+                            "example": 250
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "example": "2023-05-10T18:35:50.271Z"
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "__v": 0,
+                          "_id": "644165f968af286f7c14466e",
+                          "accomodation": 1500,
+                          "budget": 3000,
+                          "createdAt": "2023-04-20T16:19:05.665Z",
+                          "description": "London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its center stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex and the entire city.",
+                          "destName": "London",
+                          "exCode": "GBP",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "United Kingdom",
+                          "meals": 250,
+                          "nationality": "British",
+                          "transport": 250,
+                          "updatedAt": "2023-05-10T18:35:50.271Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441660668af286f7c144670",
+                          "accomodation": 1500,
+                          "budget": 5000,
+                          "createdAt": "2023-04-20T16:19:18.696Z",
+                          "description": "New York City is a global hub of international business and commerce, entertainment, fashion, and politics. Often referred to as just 'New York', the city is home to some of the world's most famous landmarks such as the Statue of Liberty, the Empire State Building, Central Park, and Times Square. New York City is a diverse and culturally rich city, with over 800 languages spoken by its inhabitants.",
+                          "destName": "New York City",
+                          "exCode": "USD",
+                          "flights": 1500,
+                          "imgSrc": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "USA",
+                          "meals": 1100,
+                          "nationality": "American",
+                          "transport": 900,
+                          "updatedAt": "2023-05-10T18:36:11.313Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441661268af286f7c144672",
+                          "accomodation": 2000,
+                          "budget": 4000,
+                          "createdAt": "2023-04-20T16:19:30.757Z",
+                          "description": "Paris, the capital of France, is known for its romantic atmosphere, delicious cuisine, and iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. The city is a hub for fashion, art, and culture, with a rich history spanning back thousands of years.",
+                          "destName": "Paris",
+                          "exCode": "EUR",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+                          "location": "France",
+                          "meals": 600,
+                          "nationality": "French",
+                          "transport": 400,
+                          "updatedAt": "2023-05-10T18:36:59.048Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441661b68af286f7c144674",
+                          "accomodation": 2000,
+                          "budget": 5500,
+                          "createdAt": "2023-04-20T16:19:39.281Z",
+                          "description": "the birthplace of Western civilization and democracy. With over 3,400 years of history, Athens is widely known as one of the oldest cities in the world. Rich in culture and famous for its architecture, Athens is a must-visit destination for any traveler.",
+                          "destName": "Athens",
+                          "exCode": "EUR",
+                          "flights": 2000,
+                          "imgSrc": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Greece",
+                          "meals": 500,
+                          "nationality": "Greek",
+                          "transport": 1000,
+                          "updatedAt": "2023-05-10T18:37:24.665Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441662a68af286f7c144676",
+                          "accomodation": 750,
+                          "budget": 3000,
+                          "createdAt": "2023-04-20T16:19:54.590Z",
+                          "description": "a vibrant city located in western Morocco, known for its beautiful architecture, bustling markets, and lively atmosphere. With its stunning riads, luxurious gardens, and exotic souks, Marrakesh is a perfect destination for anyone looking to explore Morocco's rich culture and history.",
+                          "destName": "Marrakesh",
+                          "exCode": "MAD",
+                          "flights": 750,
+                          "imgSrc": "https://images.unsplash.com/photo-1597212618440-806262de4f6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+                          "location": "Morocco",
+                          "meals": 1000,
+                          "nationality": "Moroccan",
+                          "transport": 500,
+                          "updatedAt": "2023-05-10T18:38:01.035Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441663468af286f7c144678",
+                          "accomodation": 2000,
+                          "budget": 4500,
+                          "createdAt": "2023-04-20T16:20:04.381Z",
+                          "description": "a beautiful city located in southern Poland, known for its rich history, stunning architecture, and vibrant nightlife. With its historic old town, medieval castle, and beautiful parks, Krakow is a perfect destination for anyone looking to experience Poland's unique culture and history.",
+                          "destName": "Krakow",
+                          "exCode": "PLN",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1495181941197-70a606546974?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Poland",
+                          "meals": 700,
+                          "nationality": "Polish",
+                          "transport": 800,
+                          "updatedAt": "2023-05-10T18:38:29.681Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441663a68af286f7c14467a",
+                          "accomodation": 1000,
+                          "budget": 3000,
+                          "createdAt": "2023-04-20T16:20:10.899Z",
+                          "description": "Madrid is Spain's central capital city and is famous for its artistic and cultural heritage. The city offers a rich mix of history, tradition, and modernity. There are numerous museums, art galleries, and monuments to visit and a vibrant nightlife to enjoy.",
+                          "destName": "Madrid",
+                          "exCode": "EUR",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Spain",
+                          "meals": 300,
+                          "nationality": "Spanish",
+                          "transport": 700,
+                          "updatedAt": "2023-05-10T18:38:52.649Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441664868af286f7c14467c",
+                          "accomodation": 750,
+                          "budget": 2000,
+                          "createdAt": "2023-04-20T16:20:24.640Z",
+                          "description": "Bratislava is the capital of Slovakia and lies on the banks of the Danube River. It is a city with a rich history and culture and offers visitors many things to see and do. There are numerous museums, galleries, and historical buildings to explore, as well as parks and gardens to enjoy.",
+                          "destName": "Bratislava",
+                          "exCode": "EUR",
+                          "flights": 750,
+                          "imgSrc": "https://images.unsplash.com/photo-1620283110809-3ff3adfe057b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80",
+                          "location": "Slovakia",
+                          "meals": 200,
+                          "nationality": "Slovak",
+                          "transport": 300,
+                          "updatedAt": "2023-05-10T18:39:48.044Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441664f68af286f7c14467e",
+                          "accomodation": 625,
+                          "budget": 2500,
+                          "createdAt": "2023-04-20T16:20:31.571Z",
+                          "description": "Bangkok is the capital and largest city of Thailand. It is a city of contrasts, with ancient temples and modern skyscrapers standing side by side. There are numerous cultural and historical sites to visit, as well as shopping malls and markets to explore. The city is also famous for its street food and nightlife.",
+                          "destName": "Bangkok",
+                          "exCode": "THB",
+                          "flights": 625,
+                          "imgSrc": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
+                          "location": "Thailand",
+                          "meals": 625,
+                          "nationality": "Thai",
+                          "transport": 625,
+                          "updatedAt": "2023-05-10T18:40:17.096Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441665768af286f7c144680",
+                          "accomodation": 450,
+                          "budget": 1800,
+                          "createdAt": "2023-04-20T16:20:39.255Z",
+                          "description": "Hanoi is the capital and second-largest city of Vietnam. It is known for its rich history and culture, with many temples, pagodas, and historic sites to explore. The city is also famous for its street food and bustling markets.",
+                          "destName": "Hanoi",
+                          "exCode": "VND",
+                          "flights": 500,
+                          "imgSrc": "https://images.unsplash.com/photo-1509030450996-dd1a26dda07a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1223&q=80",
+                          "location": "Vietnam",
+                          "meals": 400,
+                          "nationality": "Vietnamese",
+                          "transport": 450,
+                          "updatedAt": "2023-05-10T18:41:01.701Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441665e68af286f7c144682",
+                          "accomodation": 1000,
+                          "budget": 3500,
+                          "createdAt": "2023-04-20T16:20:46.220Z",
+                          "description": "Istanbul is a city that straddles two continents, Europe and Asia, and is known for its rich history and culture. It offers visitors a mix of modernity and tradition, with its ancient architecture, bustling markets, and vibrant street life. There are also numerous museums, palaces, and mosques to explore.",
+                          "destName": "Istanbul",
+                          "exCode": "TRY",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+                          "location": "Turkey",
+                          "meals": 500,
+                          "nationality": "Turkish",
+                          "transport": 1000,
+                          "updatedAt": "2023-05-10T18:41:40.356Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441666568af286f7c144684",
+                          "accomodation": 2100,
+                          "budget": 6000,
+                          "createdAt": "2023-04-20T16:20:53.891Z",
+                          "description": "Cairo, Egypt's sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts. Nearby, Giza is the site of the iconic pyramids and Great Sphinx, dating to the 26th century BC. In Gezira Island's leafy Zamalek district, 187m Cairo Tower affords panoramic city views.",
+                          "destName": "Cairo",
+                          "exCode": "EGP",
+                          "flights": 1900,
+                          "imgSrc": "https://images.unsplash.com/photo-1626692880062-35c360fb6afc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Egypt",
+                          "meals": 800,
+                          "nationality": "Egyptian",
+                          "transport": 1200,
+                          "updatedAt": "2023-05-10T18:42:44.061Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441666d68af286f7c144686",
+                          "accomodation": 2000,
+                          "budget": 8000,
+                          "createdAt": "2023-04-20T16:21:01.046Z",
+                          "description": "Rome, Italy's capital, is a sprawling, cosmopolitan city with nearly 3,000 years of globally influential art, architecture and culture on display. Ancient ruins such as the Roman Forum and the Colosseum evoke the power of the former Roman Empire. Vatican City, headquarters of the Roman Catholic Church, has St. Peter’s Basilica and the Vatican Museums, which house masterpieces such as Michelangelo’s Sistine Chapel frescoes.",
+                          "destName": "Rome",
+                          "exCode": "EUR",
+                          "flights": 2000,
+                          "imgSrc": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80",
+                          "location": "Italy",
+                          "meals": 2000,
+                          "nationality": "Italian",
+                          "transport": 2000,
+                          "updatedAt": "2023-05-10T18:43:03.093Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441667568af286f7c144688",
+                          "accomodation": 5000,
+                          "budget": 10000,
+                          "createdAt": "2023-04-20T16:21:09.950Z",
+                          "description": "Tokyo, Japan's busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods. The Imperial Palace sits amid large public gardens. The city's many museums offer exhibits ranging from classical art (in the Tokyo National Museum) to a reconstructed kabuki theater (in the Edo-Tokyo Museum).",
+                          "destName": "Tokyo",
+                          "exCode": "JPY",
+                          "flights": 4000,
+                          "imgSrc": "https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1184&q=80",
+                          "location": "Japan",
+                          "meals": 300,
+                          "nationality": "Japanese",
+                          "transport": 700,
+                          "updatedAt": "2023-05-10T18:43:36.748Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6446e0922a596f71099933f0",
+                          "accomodation": 875,
+                          "budget": 3500,
+                          "createdAt": "2023-04-24T20:03:30.883Z",
+                          "description": "Lisbon, the capital of Portugal, is a vibrant city full of history, culture, and stunning architecture. The city is known for its lively music scene, delicious food, and warm hospitality. With its charming narrow streets, colorful buildings, and breathtaking views of the Tagus River, Lisbon is a must-visit destination for anyone exploring Europe.",
+                          "destName": "Lisbon",
+                          "exCode": "EUR",
+                          "flights": 875,
+                          "imgSrc": "https://images.unsplash.com/photo-1555881400-69a2384edcd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Portugal",
+                          "meals": 875,
+                          "nationality": "Portuguese",
+                          "transport": 875,
+                          "updatedAt": "2023-05-10T18:44:07.472Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "645be9396c1c545f3931957b",
+                          "accomodation": 4000,
+                          "budget": 12000,
+                          "createdAt": "2023-05-10T18:58:01.169Z",
+                          "description": "Marseille, a port city in southern France, has been a crossroads of immigration and trade since its founding by the Greeks circa 600 B.C. At its heart is the Vieux-Port (Old Port), where fishmongers sell their catch along the boat-lined quay. Basilique Notre-Dame-de-la-Garde is a Romanesque-Byzantine church.",
+                          "destName": "Marseille",
+                          "exCode": "EUR",
+                          "flights": 4000,
+                          "imgSrc": "https://images.unsplash.com/photo-1576244348464-c7d393b6dfc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1193&q=80",
+                          "location": "France",
+                          "meals": 2000,
+                          "nationality": "French",
+                          "transport": 2000,
+                          "updatedAt": "2023-05-10T18:58:01.169Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "646b99b01cc65fe2781961c3",
+                          "accomodation": 5000,
+                          "budget": 15000,
+                          "createdAt": "2023-05-22T16:34:56.329Z",
+                          "description": "Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.",
+                          "destName": "Alexandria",
+                          "exCode": "EGP",
+                          "flights": 5000,
+                          "imgSrc": "https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+                          "location": "Egypt",
+                          "meals": 3000,
+                          "nationality": "Egyptian",
+                          "transport": 2000,
+                          "updatedAt": "2023-05-22T16:34:56.329Z"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Fetched all trips!"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Get Trip": {
+                    "value": {
+                      "data": [
+                        {
+                          "__v": 0,
+                          "_id": "644165f968af286f7c14466e",
+                          "accomodation": 1500,
+                          "budget": 3000,
+                          "createdAt": "2023-04-20T16:19:05.665Z",
+                          "description": "London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its center stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex and the entire city.",
+                          "destName": "London",
+                          "exCode": "GBP",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "United Kingdom",
+                          "meals": 250,
+                          "nationality": "British",
+                          "transport": 250,
+                          "updatedAt": "2023-05-10T18:35:50.271Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441660668af286f7c144670",
+                          "accomodation": 1500,
+                          "budget": 5000,
+                          "createdAt": "2023-04-20T16:19:18.696Z",
+                          "description": "New York City is a global hub of international business and commerce, entertainment, fashion, and politics. Often referred to as just 'New York', the city is home to some of the world's most famous landmarks such as the Statue of Liberty, the Empire State Building, Central Park, and Times Square. New York City is a diverse and culturally rich city, with over 800 languages spoken by its inhabitants.",
+                          "destName": "New York City",
+                          "exCode": "USD",
+                          "flights": 1500,
+                          "imgSrc": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "USA",
+                          "meals": 1100,
+                          "nationality": "American",
+                          "transport": 900,
+                          "updatedAt": "2023-05-10T18:36:11.313Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441661268af286f7c144672",
+                          "accomodation": 2000,
+                          "budget": 4000,
+                          "createdAt": "2023-04-20T16:19:30.757Z",
+                          "description": "Paris, the capital of France, is known for its romantic atmosphere, delicious cuisine, and iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. The city is a hub for fashion, art, and culture, with a rich history spanning back thousands of years.",
+                          "destName": "Paris",
+                          "exCode": "EUR",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+                          "location": "France",
+                          "meals": 600,
+                          "nationality": "French",
+                          "transport": 400,
+                          "updatedAt": "2023-05-10T18:36:59.048Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441661b68af286f7c144674",
+                          "accomodation": 2000,
+                          "budget": 5500,
+                          "createdAt": "2023-04-20T16:19:39.281Z",
+                          "description": "the birthplace of Western civilization and democracy. With over 3,400 years of history, Athens is widely known as one of the oldest cities in the world. Rich in culture and famous for its architecture, Athens is a must-visit destination for any traveler.",
+                          "destName": "Athens",
+                          "exCode": "EUR",
+                          "flights": 2000,
+                          "imgSrc": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Greece",
+                          "meals": 500,
+                          "nationality": "Greek",
+                          "transport": 1000,
+                          "updatedAt": "2023-05-10T18:37:24.665Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441662a68af286f7c144676",
+                          "accomodation": 750,
+                          "budget": 3000,
+                          "createdAt": "2023-04-20T16:19:54.590Z",
+                          "description": "a vibrant city located in western Morocco, known for its beautiful architecture, bustling markets, and lively atmosphere. With its stunning riads, luxurious gardens, and exotic souks, Marrakesh is a perfect destination for anyone looking to explore Morocco's rich culture and history.",
+                          "destName": "Marrakesh",
+                          "exCode": "MAD",
+                          "flights": 750,
+                          "imgSrc": "https://images.unsplash.com/photo-1597212618440-806262de4f6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+                          "location": "Morocco",
+                          "meals": 1000,
+                          "nationality": "Moroccan",
+                          "transport": 500,
+                          "updatedAt": "2023-05-10T18:38:01.035Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441663468af286f7c144678",
+                          "accomodation": 2000,
+                          "budget": 4500,
+                          "createdAt": "2023-04-20T16:20:04.381Z",
+                          "description": "a beautiful city located in southern Poland, known for its rich history, stunning architecture, and vibrant nightlife. With its historic old town, medieval castle, and beautiful parks, Krakow is a perfect destination for anyone looking to experience Poland's unique culture and history.",
+                          "destName": "Krakow",
+                          "exCode": "PLN",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1495181941197-70a606546974?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Poland",
+                          "meals": 700,
+                          "nationality": "Polish",
+                          "transport": 800,
+                          "updatedAt": "2023-05-10T18:38:29.681Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441663a68af286f7c14467a",
+                          "accomodation": 1000,
+                          "budget": 3000,
+                          "createdAt": "2023-04-20T16:20:10.899Z",
+                          "description": "Madrid is Spain's central capital city and is famous for its artistic and cultural heritage. The city offers a rich mix of history, tradition, and modernity. There are numerous museums, art galleries, and monuments to visit and a vibrant nightlife to enjoy.",
+                          "destName": "Madrid",
+                          "exCode": "EUR",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Spain",
+                          "meals": 300,
+                          "nationality": "Spanish",
+                          "transport": 700,
+                          "updatedAt": "2023-05-10T18:38:52.649Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441664868af286f7c14467c",
+                          "accomodation": 750,
+                          "budget": 2000,
+                          "createdAt": "2023-04-20T16:20:24.640Z",
+                          "description": "Bratislava is the capital of Slovakia and lies on the banks of the Danube River. It is a city with a rich history and culture and offers visitors many things to see and do. There are numerous museums, galleries, and historical buildings to explore, as well as parks and gardens to enjoy.",
+                          "destName": "Bratislava",
+                          "exCode": "EUR",
+                          "flights": 750,
+                          "imgSrc": "https://images.unsplash.com/photo-1620283110809-3ff3adfe057b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80",
+                          "location": "Slovakia",
+                          "meals": 200,
+                          "nationality": "Slovak",
+                          "transport": 300,
+                          "updatedAt": "2023-05-10T18:39:48.044Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441664f68af286f7c14467e",
+                          "accomodation": 625,
+                          "budget": 2500,
+                          "createdAt": "2023-04-20T16:20:31.571Z",
+                          "description": "Bangkok is the capital and largest city of Thailand. It is a city of contrasts, with ancient temples and modern skyscrapers standing side by side. There are numerous cultural and historical sites to visit, as well as shopping malls and markets to explore. The city is also famous for its street food and nightlife.",
+                          "destName": "Bangkok",
+                          "exCode": "THB",
+                          "flights": 625,
+                          "imgSrc": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
+                          "location": "Thailand",
+                          "meals": 625,
+                          "nationality": "Thai",
+                          "transport": 625,
+                          "updatedAt": "2023-05-10T18:40:17.096Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441665768af286f7c144680",
+                          "accomodation": 450,
+                          "budget": 1800,
+                          "createdAt": "2023-04-20T16:20:39.255Z",
+                          "description": "Hanoi is the capital and second-largest city of Vietnam. It is known for its rich history and culture, with many temples, pagodas, and historic sites to explore. The city is also famous for its street food and bustling markets.",
+                          "destName": "Hanoi",
+                          "exCode": "VND",
+                          "flights": 500,
+                          "imgSrc": "https://images.unsplash.com/photo-1509030450996-dd1a26dda07a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1223&q=80",
+                          "location": "Vietnam",
+                          "meals": 400,
+                          "nationality": "Vietnamese",
+                          "transport": 450,
+                          "updatedAt": "2023-05-10T18:41:01.701Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441665e68af286f7c144682",
+                          "accomodation": 1000,
+                          "budget": 3500,
+                          "createdAt": "2023-04-20T16:20:46.220Z",
+                          "description": "Istanbul is a city that straddles two continents, Europe and Asia, and is known for its rich history and culture. It offers visitors a mix of modernity and tradition, with its ancient architecture, bustling markets, and vibrant street life. There are also numerous museums, palaces, and mosques to explore.",
+                          "destName": "Istanbul",
+                          "exCode": "TRY",
+                          "flights": 1000,
+                          "imgSrc": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+                          "location": "Turkey",
+                          "meals": 500,
+                          "nationality": "Turkish",
+                          "transport": 1000,
+                          "updatedAt": "2023-05-10T18:41:40.356Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441666568af286f7c144684",
+                          "accomodation": 2100,
+                          "budget": 6000,
+                          "createdAt": "2023-04-20T16:20:53.891Z",
+                          "description": "Cairo, Egypt's sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts. Nearby, Giza is the site of the iconic pyramids and Great Sphinx, dating to the 26th century BC. In Gezira Island's leafy Zamalek district, 187m Cairo Tower affords panoramic city views.",
+                          "destName": "Cairo",
+                          "exCode": "EGP",
+                          "flights": 1900,
+                          "imgSrc": "https://images.unsplash.com/photo-1626692880062-35c360fb6afc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Egypt",
+                          "meals": 800,
+                          "nationality": "Egyptian",
+                          "transport": 1200,
+                          "updatedAt": "2023-05-10T18:42:44.061Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441666d68af286f7c144686",
+                          "accomodation": 2000,
+                          "budget": 8000,
+                          "createdAt": "2023-04-20T16:21:01.046Z",
+                          "description": "Rome, Italy's capital, is a sprawling, cosmopolitan city with nearly 3,000 years of globally influential art, architecture and culture on display. Ancient ruins such as the Roman Forum and the Colosseum evoke the power of the former Roman Empire. Vatican City, headquarters of the Roman Catholic Church, has St. Peter’s Basilica and the Vatican Museums, which house masterpieces such as Michelangelo’s Sistine Chapel frescoes.",
+                          "destName": "Rome",
+                          "exCode": "EUR",
+                          "flights": 2000,
+                          "imgSrc": "https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80",
+                          "location": "Italy",
+                          "meals": 2000,
+                          "nationality": "Italian",
+                          "transport": 2000,
+                          "updatedAt": "2023-05-10T18:43:03.093Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6441667568af286f7c144688",
+                          "accomodation": 5000,
+                          "budget": 10000,
+                          "createdAt": "2023-04-20T16:21:09.950Z",
+                          "description": "Tokyo, Japan's busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods. The Imperial Palace sits amid large public gardens. The city's many museums offer exhibits ranging from classical art (in the Tokyo National Museum) to a reconstructed kabuki theater (in the Edo-Tokyo Museum).",
+                          "destName": "Tokyo",
+                          "exCode": "JPY",
+                          "flights": 4000,
+                          "imgSrc": "https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1184&q=80",
+                          "location": "Japan",
+                          "meals": 300,
+                          "nationality": "Japanese",
+                          "transport": 700,
+                          "updatedAt": "2023-05-10T18:43:36.748Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6446e0922a596f71099933f0",
+                          "accomodation": 875,
+                          "budget": 3500,
+                          "createdAt": "2023-04-24T20:03:30.883Z",
+                          "description": "Lisbon, the capital of Portugal, is a vibrant city full of history, culture, and stunning architecture. The city is known for its lively music scene, delicious food, and warm hospitality. With its charming narrow streets, colorful buildings, and breathtaking views of the Tagus River, Lisbon is a must-visit destination for anyone exploring Europe.",
+                          "destName": "Lisbon",
+                          "exCode": "EUR",
+                          "flights": 875,
+                          "imgSrc": "https://images.unsplash.com/photo-1555881400-69a2384edcd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Portugal",
+                          "meals": 875,
+                          "nationality": "Portuguese",
+                          "transport": 875,
+                          "updatedAt": "2023-05-10T18:44:07.472Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "645be9396c1c545f3931957b",
+                          "accomodation": 4000,
+                          "budget": 12000,
+                          "createdAt": "2023-05-10T18:58:01.169Z",
+                          "description": "Marseille, a port city in southern France, has been a crossroads of immigration and trade since its founding by the Greeks circa 600 B.C. At its heart is the Vieux-Port (Old Port), where fishmongers sell their catch along the boat-lined quay. Basilique Notre-Dame-de-la-Garde is a Romanesque-Byzantine church.",
+                          "destName": "Marseille",
+                          "exCode": "EUR",
+                          "flights": 4000,
+                          "imgSrc": "https://images.unsplash.com/photo-1576244348464-c7d393b6dfc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1193&q=80",
+                          "location": "France",
+                          "meals": 2000,
+                          "nationality": "French",
+                          "transport": 2000,
+                          "updatedAt": "2023-05-10T18:58:01.169Z"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "646b99b01cc65fe2781961c3",
+                          "accomodation": 5000,
+                          "budget": 15000,
+                          "createdAt": "2023-05-22T16:34:56.329Z",
+                          "description": "Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.",
+                          "destName": "Alexandria",
+                          "exCode": "EGP",
+                          "flights": 5000,
+                          "imgSrc": "https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+                          "location": "Egypt",
+                          "meals": 3000,
+                          "nationality": "Egyptian",
+                          "transport": 2000,
+                          "updatedAt": "2023-05-22T16:34:56.329Z"
+                        }
+                      ],
+                      "message": "Fetched all trips!",
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/thisisntarealid": {
+      "get": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Get Single Trip With Invalid ID",
+        "description": "Get Single Trip With Invalid ID",
+        "operationId": "getSingleTripWithInvalidId",
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "404": {
+            "description": "Get Single Trip With ID Copy",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "62"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:25:57 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3e-pMggcCPkxt9CCzGLHAQ+JO87FK8\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Trip not found! Please try again"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    }
+                  }
+                },
+                "examples": {
+                  "Get Single Trip With ID Copy": {
+                    "value": {
+                      "message": "Trip not found! Please try again",
+                      "success": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/644165f968af286f7c14466e": {
+      "get": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Get Single Trip With ID",
+        "description": "Get Single Trip With ID",
+        "operationId": "getSingleTripWithId",
+        "responses": {
+          "200": {
+            "description": "Get All Trips Copy",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "945"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:25:22 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3b1-kipgNXyKV90px5Sa9jXkcLA2Icw\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "__v": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "_id": {
+                          "type": "string",
+                          "example": "644165f968af286f7c14466e"
+                        },
+                        "accomodation": {
+                          "type": "number",
+                          "example": 1500
+                        },
+                        "budget": {
+                          "type": "number",
+                          "example": 3000
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2023-04-20T16:19:05.665Z"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its center stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex and the entire city."
+                        },
+                        "destName": {
+                          "type": "string",
+                          "example": "London"
+                        },
+                        "exCode": {
+                          "type": "string",
+                          "example": "GBP"
+                        },
+                        "flights": {
+                          "type": "number",
+                          "example": 1000
+                        },
+                        "imgSrc": {
+                          "type": "string",
+                          "example": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        },
+                        "location": {
+                          "type": "string",
+                          "example": "United Kingdom"
+                        },
+                        "meals": {
+                          "type": "number",
+                          "example": 250
+                        },
+                        "nationality": {
+                          "type": "string",
+                          "example": "British"
+                        },
+                        "transport": {
+                          "type": "number",
+                          "example": 250
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2023-05-10T18:35:50.271Z"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully found trip!"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Get All Trips Copy": {
+                    "value": {
+                      "data": {
+                        "__v": 0,
+                        "_id": "644165f968af286f7c14466e",
+                        "accomodation": 1500,
+                        "budget": 3000,
+                        "createdAt": "2023-04-20T16:19:05.665Z",
+                        "description": "London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its center stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex and the entire city.",
+                        "destName": "London",
+                        "exCode": "GBP",
+                        "flights": 1000,
+                        "imgSrc": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                        "location": "United Kingdom",
+                        "meals": 250,
+                        "nationality": "British",
+                        "transport": 250,
+                        "updatedAt": "2023-05-10T18:35:50.271Z"
+                      },
+                      "message": "Successfully found trip!",
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/search/getTripBySearch": {
+      "get": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Search For Trip By Location and Budget",
+        "description": "Search For Trip By Location and Budget",
+        "operationId": "searchForTripByLocationAndBudget",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "egypt"
+            }
+          },
+          {
+            "name": "budget",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "7000"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search For Trip By Location and Budget",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "904"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:43:04 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"388-IA06v0ZAqdakjJCqnPWTBteKJGo\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "__v": {
+                            "type": "number",
+                            "example": 0
+                          },
+                          "_id": {
+                            "type": "string",
+                            "example": "6441666568af286f7c144684"
+                          },
+                          "accomodation": {
+                            "type": "number",
+                            "example": 2100
+                          },
+                          "budget": {
+                            "type": "number",
+                            "example": 6000
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2023-04-20T16:20:53.891Z"
+                          },
+                          "description": {
+                            "type": "string",
+                            "example": "Cairo, Egypt's sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts. Nearby, Giza is the site of the iconic pyramids and Great Sphinx, dating to the 26th century BC. In Gezira Island's leafy Zamalek district, 187m Cairo Tower affords panoramic city views."
+                          },
+                          "destName": {
+                            "type": "string",
+                            "example": "Cairo"
+                          },
+                          "exCode": {
+                            "type": "string",
+                            "example": "EGP"
+                          },
+                          "flights": {
+                            "type": "number",
+                            "example": 1900
+                          },
+                          "imgSrc": {
+                            "type": "string",
+                            "example": "https://images.unsplash.com/photo-1626692880062-35c360fb6afc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                          },
+                          "location": {
+                            "type": "string",
+                            "example": "Egypt"
+                          },
+                          "meals": {
+                            "type": "number",
+                            "example": 800
+                          },
+                          "nationality": {
+                            "type": "string",
+                            "example": "Egyptian"
+                          },
+                          "transport": {
+                            "type": "number",
+                            "example": 1200
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "example": "2023-05-10T18:42:44.061Z"
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "__v": 0,
+                          "_id": "6441666568af286f7c144684",
+                          "accomodation": 2100,
+                          "budget": 6000,
+                          "createdAt": "2023-04-20T16:20:53.891Z",
+                          "description": "Cairo, Egypt's sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts. Nearby, Giza is the site of the iconic pyramids and Great Sphinx, dating to the 26th century BC. In Gezira Island's leafy Zamalek district, 187m Cairo Tower affords panoramic city views.",
+                          "destName": "Cairo",
+                          "exCode": "EGP",
+                          "flights": 1900,
+                          "imgSrc": "https://images.unsplash.com/photo-1626692880062-35c360fb6afc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Egypt",
+                          "meals": 800,
+                          "nationality": "Egyptian",
+                          "transport": 1200,
+                          "updatedAt": "2023-05-10T18:42:44.061Z"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successful"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Search For Trip By Location and Budget": {
+                    "value": {
+                      "data": [
+                        {
+                          "__v": 0,
+                          "_id": "6441666568af286f7c144684",
+                          "accomodation": 2100,
+                          "budget": 6000,
+                          "createdAt": "2023-04-20T16:20:53.891Z",
+                          "description": "Cairo, Egypt's sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts. Nearby, Giza is the site of the iconic pyramids and Great Sphinx, dating to the 26th century BC. In Gezira Island's leafy Zamalek district, 187m Cairo Tower affords panoramic city views.",
+                          "destName": "Cairo",
+                          "exCode": "EGP",
+                          "flights": 1900,
+                          "imgSrc": "https://images.unsplash.com/photo-1626692880062-35c360fb6afc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                          "location": "Egypt",
+                          "meals": 800,
+                          "nationality": "Egyptian",
+                          "transport": 1200,
+                          "updatedAt": "2023-05-10T18:42:44.061Z"
+                        }
+                      ],
+                      "message": "Successful",
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/thisidisntreal": {
+      "put": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Update Trip With Invalid ID",
+        "description": "Update Trip With Invalid ID",
+        "operationId": "updateTripWithInvalidId",
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "accomodation": {
+                    "type": "number",
+                    "example": 4000
+                  },
+                  "budget": {
+                    "type": "number",
+                    "example": 14000
+                  },
+                  "flights": {
+                    "type": "number",
+                    "example": 5000
+                  },
+                  "meals": {
+                    "type": "number",
+                    "example": 3000
+                  },
+                  "transport": {
+                    "type": "number",
+                    "example": 2000
+                  }
+                }
+              },
+              "example": {
+                "accomodation": 4000,
+                "budget": 14000,
+                "flights": 5000,
+                "meals": 3000,
+                "transport": 2000
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Update Trip With ID Copy",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "73"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:30:51 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"49-WUJB7N9kXpcChthSow7y3MJkSII\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Error while updating trip! Please try again"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": false
+                    }
+                  }
+                },
+                "examples": {
+                  "Update Trip With ID Copy": {
+                    "value": {
+                      "message": "Error while updating trip! Please try again",
+                      "success": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/646b961a1cc65fe2781961b4": {
+      "put": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Update Trip With ID",
+        "description": "Update Trip With ID",
+        "operationId": "updateTripWithId",
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "accomodation": {
+                    "type": "number",
+                    "example": 4000
+                  },
+                  "budget": {
+                    "type": "number",
+                    "example": 14000
+                  },
+                  "flights": {
+                    "type": "number",
+                    "example": 5000
+                  },
+                  "meals": {
+                    "type": "number",
+                    "example": 3000
+                  },
+                  "transport": {
+                    "type": "number",
+                    "example": 2000
+                  }
+                }
+              },
+              "example": {
+                "accomodation": 4000,
+                "budget": 14000,
+                "flights": 5000,
+                "meals": 3000,
+                "transport": 2000
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Update Trip With ID",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "1017"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:29:06 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3f9-V7jHpjJOLGmISyUTdOAGGWE3dNA\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "__v": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "_id": {
+                          "type": "string",
+                          "example": "646b961a1cc65fe2781961b4"
+                        },
+                        "accomodation": {
+                          "type": "number",
+                          "example": 4000
+                        },
+                        "budget": {
+                          "type": "number",
+                          "example": 14000
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2023-05-22T16:19:38.559Z"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront."
+                        },
+                        "destName": {
+                          "type": "string",
+                          "example": "Alexandria"
+                        },
+                        "exCode": {
+                          "type": "string",
+                          "example": "EGP"
+                        },
+                        "flights": {
+                          "type": "number",
+                          "example": 5000
+                        },
+                        "imgSrc": {
+                          "type": "string",
+                          "example": "https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                        },
+                        "location": {
+                          "type": "string",
+                          "example": "Egypt"
+                        },
+                        "meals": {
+                          "type": "number",
+                          "example": 3000
+                        },
+                        "nationality": {
+                          "type": "string",
+                          "example": "Egyptian"
+                        },
+                        "transport": {
+                          "type": "number",
+                          "example": 2000
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2023-05-22T16:29:06.771Z"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully updated trip!"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Update Trip With ID": {
+                    "value": {
+                      "data": {
+                        "__v": 0,
+                        "_id": "646b961a1cc65fe2781961b4",
+                        "accomodation": 4000,
+                        "budget": 14000,
+                        "createdAt": "2023-05-22T16:19:38.559Z",
+                        "description": "Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.",
+                        "destName": "Alexandria",
+                        "exCode": "EGP",
+                        "flights": 5000,
+                        "imgSrc": "https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+                        "location": "Egypt",
+                        "meals": 3000,
+                        "nationality": "Egyptian",
+                        "transport": 2000,
+                        "updatedAt": "2023-05-22T16:29:06.771Z"
+                      },
+                      "message": "Successfully updated trip!",
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/646b99b01cc65fe2781961c3": {
+      "delete": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Delete Trip With ID",
+        "description": "Delete Trip With ID",
+        "operationId": "deleteTripWithId",
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update Trip With Invalid Fields Copy",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "55"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:36:22 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"37-LQql5wsiyQYukxWxuOfPud4PV1w\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully deleted trip!"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Update Trip With Invalid Fields Copy": {
+                    "value": {
+                      "message": "Successfully deleted trip!",
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/646b9a0a1cc65fe2781961d3/getWeather": {
+      "get": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Get Weather For Trip ID",
+        "description": "Get Weather For Trip ID",
+        "operationId": "getWeatherForTripId",
+        "responses": {
+          "200": {
+            "description": "Get All Trips Copy",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "14"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:36:37 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"e-2uNUEdmnCI2PjebGnpPYIOIPCSg\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "number",
+                      "example": 21.33
+                    }
+                  }
+                },
+                "examples": {
+                  "Get All Trips Copy": {
+                    "value": {
+                      "data": 21.33
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/646b9a0a1cc65fe2781961d3/getFood": {
+      "get": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Get Food For Trip ID",
+        "description": "Get Food For Trip ID",
+        "operationId": "getFoodForTripId",
+        "responses": {
+          "200": {
+            "description": "Get Weather For Trip ID Copy",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "26"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:38:06 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"1a-WhaXrYRAear1EwA3LTxGJvEcJhU\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "example": "Egyptian Fatteh"
+                    }
+                  }
+                },
+                "examples": {
+                  "Get Weather For Trip ID Copy": {
+                    "value": {
+                      "data": "Egyptian Fatteh"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trips/646b9a0a1cc65fe2781961d3/getExchange": {
+      "get": {
+        "tags": [
+          "Trips"
+        ],
+        "summary": "Get Exchange Rate For Trip ID",
+        "description": "Get Exchange Rate For Trip ID",
+        "operationId": "getExchangeRateForTripId",
+        "responses": {
+          "200": {
+            "description": "Get Food For Trip ID Copy",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "1"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:38:29 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"1-NWoZK3kTsExUV00Ywo1G5jlUKKs\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/octet-stream": {
+                "examples": {
+                  "Get Food For Trip ID Copy": {
+                    "value": "1"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Register",
+        "description": "Register",
+        "operationId": "register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "admin4@admin.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "admin"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "admin4"
+                  }
+                }
+              },
+              "example": {
+                "email": "admin4@admin.com",
+                "password": "admin",
+                "username": "admin4"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Register Copy",
+            "headers": {
+              "CF-Cache-Status": {
+                "schema": {
+                  "type": "string",
+                  "example": "DYNAMIC"
+                }
+              },
+              "CF-Ray": {
+                "schema": {
+                  "type": "string",
+                  "example": "7cb684911df511a5-MRS"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "br"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:43:56 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"39-DgQCOzi58dsopbHhM6hZKCPSeLk\""
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "cloudflare"
+                }
+              },
+              "Set-Cookie": {
+                "schema": {
+                  "type": "string",
+                  "example": "_cfuvid=.t2mI68gfbXnMcuHgb4.81djbLCniLYMcw4nT9J6_vI-1684773836422-0-604800000; path=/; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "alt-svc": {
+                "schema": {
+                  "type": "string",
+                  "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "x-render-origin-server": {
+                "schema": {
+                  "type": "string",
+                  "example": "Render"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Succesfully created new user"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Register Copy": {
+                    "value": {
+                      "message": "Succesfully created new user",
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Login",
+        "description": "Login",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "example": "admin"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "admin"
+                  }
+                }
+              },
+              "example": {
+                "password": "admin",
+                "username": "admin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "login Copy",
+            "headers": {
+              "CF-Cache-Status": {
+                "schema": {
+                  "type": "string",
+                  "example": "DYNAMIC"
+                }
+              },
+              "CF-Ray": {
+                "schema": {
+                  "type": "string",
+                  "example": "7cb6863b8d1f11a5-MRS"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "br"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:44:33 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"192-Ev2+FtzEv6RxhuUlOgsONeLEm9c\""
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "cloudflare"
+                }
+              },
+              "Set-Cookie": {
+                "schema": {
+                  "type": "string",
+                  "example": "_cfuvid=k0ehE1Jyq9hbkS5tXUy9NydgH0BBLmTx7OoydmcWVbw-1684773873215-0-604800000; path=/; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "alt-svc": {
+                "schema": {
+                  "type": "string",
+                  "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "x-render-origin-server": {
+                "schema": {
+                  "type": "string",
+                  "example": "Render"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "__v": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "_id": {
+                          "type": "string",
+                          "example": "643ed18d147db7897e0699e3"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2023-04-18T17:21:17.722Z"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "admin@admin.com"
+                        },
+                        "saved": {
+                          "type": "array",
+                          "items": {},
+                          "example": []
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2023-04-18T17:21:17.722Z"
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "admin"
+                        }
+                      }
+                    },
+                    "isAdmin": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3Mzg3MywiZXhwIjoxNjg0ODYwMjczfQ.o60JgMTzoa89KghzqV2YKmNauO6cyr_UsSn3HNK1Ugo"
+                    }
+                  }
+                },
+                "examples": {
+                  "login Copy": {
+                    "value": {
+                      "data": {
+                        "__v": 0,
+                        "_id": "643ed18d147db7897e0699e3",
+                        "createdAt": "2023-04-18T17:21:17.722Z",
+                        "email": "admin@admin.com",
+                        "saved": [],
+                        "updatedAt": "2023-04-18T17:21:17.722Z",
+                        "username": "admin"
+                      },
+                      "isAdmin": true,
+                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3Mzg3MywiZXhwIjoxNjg0ODYwMjczfQ.o60JgMTzoa89KghzqV2YKmNauO6cyr_UsSn3HNK1Ugo"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get All Users",
+        "description": "Get All Users",
+        "operationId": "getAllUsers",
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get All Users",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "1637"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:47:36 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"665-lftIAM4rMTKup+UeBIBC+RT+UiQ\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "__v": {
+                            "type": "number",
+                            "example": 0
+                          },
+                          "_id": {
+                            "type": "string",
+                            "example": "643ed18d147db7897e0699e3"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2023-04-18T17:21:17.722Z"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "admin@admin.com"
+                          },
+                          "isAdmin": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "password": {
+                            "type": "string",
+                            "example": "$2a$10$9hzKa8JMvv0fxaZgCXse9uHbx.r.IImrCVlrZql0VcligDXOmO8Ii"
+                          },
+                          "saved": {
+                            "type": "array",
+                            "items": {},
+                            "example": []
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "example": "2023-04-18T17:21:17.722Z"
+                          },
+                          "username": {
+                            "type": "string",
+                            "example": "admin"
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "__v": 0,
+                          "_id": "643ed18d147db7897e0699e3",
+                          "createdAt": "2023-04-18T17:21:17.722Z",
+                          "email": "admin@admin.com",
+                          "isAdmin": true,
+                          "password": "$2a$10$9hzKa8JMvv0fxaZgCXse9uHbx.r.IImrCVlrZql0VcligDXOmO8Ii",
+                          "saved": [],
+                          "updatedAt": "2023-04-18T17:21:17.722Z",
+                          "username": "admin"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6455397c8e38eea98c330d94",
+                          "createdAt": "2023-05-05T17:14:36.070Z",
+                          "email": "admin2@admin.com",
+                          "isAdmin": false,
+                          "password": "$2a$10$abc/.owYCe29..89MpIs6uhs1T6Gy7HJvTsOjAH0HcWmho5174UJS",
+                          "saved": [],
+                          "updatedAt": "2023-05-05T17:14:36.070Z",
+                          "username": "admin2"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "645be1a47cd73ac2663d0630",
+                          "createdAt": "2023-05-10T18:25:40.070Z",
+                          "email": "das@das.com",
+                          "isAdmin": false,
+                          "password": "$2a$10$Pl0byBsTn98XX.BbSr.Pwep31Qf6A2CMTv3ryX3UbRsEVYLfMkigW",
+                          "saved": [],
+                          "updatedAt": "2023-05-10T18:25:40.070Z",
+                          "username": "ads"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "645be25d6213806790d0c170",
+                          "createdAt": "2023-05-10T18:28:45.433Z",
+                          "email": "new@user.com",
+                          "isAdmin": true,
+                          "password": "$2a$10$lQy6C.d.f/UntC9OXSysGeC4tk7NKFHzXTqXlLxCAvvNbaDgdyCZ6",
+                          "saved": [],
+                          "updatedAt": "2023-05-10T18:28:45.433Z",
+                          "username": "newUser"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6464cda41cc65fe27819615c",
+                          "createdAt": "2023-05-17T12:50:44.411Z",
+                          "email": "tesasd1e213@dsada.com",
+                          "isAdmin": true,
+                          "password": "$2a$10$/uH5MX1CUSuiEqWj8IG2AeMn7XXi0Iyu27DKVNymI2oFllrKru4C.",
+                          "saved": [],
+                          "updatedAt": "2023-05-17T12:50:44.411Z",
+                          "username": "test1203e0"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "646b9bcc2db60c5643c558c9",
+                          "createdAt": "2023-05-22T16:43:56.203Z",
+                          "email": "admin4@admin.com",
+                          "isAdmin": false,
+                          "password": "$2a$10$VY/eV2.F6hX4C7u5Pl9QcuszMB77mPkoClpIVRUNEGQyCqUOBBx/S",
+                          "saved": [],
+                          "updatedAt": "2023-05-22T16:43:56.203Z",
+                          "username": "admin4"
+                        }
+                      ]
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "Get All Users": {
+                    "value": {
+                      "data": [
+                        {
+                          "__v": 0,
+                          "_id": "643ed18d147db7897e0699e3",
+                          "createdAt": "2023-04-18T17:21:17.722Z",
+                          "email": "admin@admin.com",
+                          "isAdmin": true,
+                          "password": "$2a$10$9hzKa8JMvv0fxaZgCXse9uHbx.r.IImrCVlrZql0VcligDXOmO8Ii",
+                          "saved": [],
+                          "updatedAt": "2023-04-18T17:21:17.722Z",
+                          "username": "admin"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6455397c8e38eea98c330d94",
+                          "createdAt": "2023-05-05T17:14:36.070Z",
+                          "email": "admin2@admin.com",
+                          "isAdmin": false,
+                          "password": "$2a$10$abc/.owYCe29..89MpIs6uhs1T6Gy7HJvTsOjAH0HcWmho5174UJS",
+                          "saved": [],
+                          "updatedAt": "2023-05-05T17:14:36.070Z",
+                          "username": "admin2"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "645be1a47cd73ac2663d0630",
+                          "createdAt": "2023-05-10T18:25:40.070Z",
+                          "email": "das@das.com",
+                          "isAdmin": false,
+                          "password": "$2a$10$Pl0byBsTn98XX.BbSr.Pwep31Qf6A2CMTv3ryX3UbRsEVYLfMkigW",
+                          "saved": [],
+                          "updatedAt": "2023-05-10T18:25:40.070Z",
+                          "username": "ads"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "645be25d6213806790d0c170",
+                          "createdAt": "2023-05-10T18:28:45.433Z",
+                          "email": "new@user.com",
+                          "isAdmin": true,
+                          "password": "$2a$10$lQy6C.d.f/UntC9OXSysGeC4tk7NKFHzXTqXlLxCAvvNbaDgdyCZ6",
+                          "saved": [],
+                          "updatedAt": "2023-05-10T18:28:45.433Z",
+                          "username": "newUser"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "6464cda41cc65fe27819615c",
+                          "createdAt": "2023-05-17T12:50:44.411Z",
+                          "email": "tesasd1e213@dsada.com",
+                          "isAdmin": true,
+                          "password": "$2a$10$/uH5MX1CUSuiEqWj8IG2AeMn7XXi0Iyu27DKVNymI2oFllrKru4C.",
+                          "saved": [],
+                          "updatedAt": "2023-05-17T12:50:44.411Z",
+                          "username": "test1203e0"
+                        },
+                        {
+                          "__v": 0,
+                          "_id": "646b9bcc2db60c5643c558c9",
+                          "createdAt": "2023-05-22T16:43:56.203Z",
+                          "email": "admin4@admin.com",
+                          "isAdmin": false,
+                          "password": "$2a$10$VY/eV2.F6hX4C7u5Pl9QcuszMB77mPkoClpIVRUNEGQyCqUOBBx/S",
+                          "saved": [],
+                          "updatedAt": "2023-05-22T16:43:56.203Z",
+                          "username": "admin4"
+                        }
+                      ],
+                      "message": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/645be25d6213806790d0c170": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update User",
+        "description": "Update User",
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "isAdmin": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              },
+              "example": {
+                "isAdmin": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Get All Users Copy",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "264"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:47:41 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"108-Lsg3DQQM5QNHQPVvFJ0ABIvMWXs\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "__v": {
+                      "type": "number",
+                      "example": 0
+                    },
+                    "_id": {
+                      "type": "string",
+                      "example": "645be25d6213806790d0c170"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2023-05-10T18:28:45.433Z"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "new@user.com"
+                    },
+                    "isAdmin": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "$2a$10$lQy6C.d.f/UntC9OXSysGeC4tk7NKFHzXTqXlLxCAvvNbaDgdyCZ6"
+                    },
+                    "saved": {
+                      "type": "array",
+                      "items": {},
+                      "example": []
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2023-05-22T16:47:41.415Z"
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "newUser"
+                    }
+                  }
+                },
+                "examples": {
+                  "Get All Users Copy": {
+                    "value": {
+                      "__v": 0,
+                      "_id": "645be25d6213806790d0c170",
+                      "createdAt": "2023-05-10T18:28:45.433Z",
+                      "email": "new@user.com",
+                      "isAdmin": true,
+                      "password": "$2a$10$lQy6C.d.f/UntC9OXSysGeC4tk7NKFHzXTqXlLxCAvvNbaDgdyCZ6",
+                      "saved": [],
+                      "updatedAt": "2023-05-22T16:47:41.415Z",
+                      "username": "newUser"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete User",
+        "description": "Delete User",
+        "operationId": "deleteUser",
+        "parameters": [
+          {
+            "name": "Cookie",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete User",
+            "headers": {
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "23"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:47:44 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"17-02fCbL+P0XAxdflMY+06yCcBmSU\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/octet-stream": {
+                "examples": {
+                  "Get All Users Copy 2": {
+                    "value": "\"User has been deleted\""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/oauth/key": {
+      "get": {
+        "tags": [
+          "OAUTH"
+        ],
+        "summary": "Get OAUTH key with client id and secret",
+        "description": "Get OAUTH key with client id and secret",
+        "operationId": "getOauthKey",
+        "responses": {
+          "200": {
+            "description": "Get All Trips Copy",
+            "headers": {
+              "clientId": {
+                "schema": {
+                  "type": "string",
+                  "example": "thisisclientkey"
+                }
+              },
+              "secret": {
+                "schema": {
+                  "type": "string",
+                  "example": "thisissecretkey"
+                }
+              },
+              "access-control-allow-credentials": {
+                "schema": {
+                  "type": "string",
+                  "example": "true"
+                }
+              },
+              "content-length": {
+                "schema": {
+                  "type": "string",
+                  "example": "945"
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 22 May 2023 16:25:22 GMT"
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3b1-kipgNXyKV90px5Sa9jXkcLA2Icw\""
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string",
+                  "example": "railway"
+                }
+              },
+              "vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Origin"
+                }
+              },
+              "x-powered-by": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string",
+                          "example": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully found trip!"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                },
+                "examples": {
+                  "Get OAUTH key": {
+                    "value": {
+                      "key": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Trips"
+    },
+    {
+      "name": "Authentication"
+    },
+    {
+      "name": "Users"
+    },
+    {
+      "name": "OAUTH"
+    }
+  ]
+}
