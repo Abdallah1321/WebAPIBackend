@@ -1,0 +1,3000 @@
+{
+	"info": {
+		"_postman_id": "56b5fb51-1c61-4648-85e4-7ffe86d1c203",
+		"name": "TripHopper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18249535"
+	},
+	"item": [
+		{
+			"name": "Trips",
+			"item": [
+				{
+					"name": "Create Trip (Not admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"destName\": \"Marseille\",\r\n    \"location\": \"France\",\r\n    \"nationality\": \"French\",\r\n    \"imgSrc\": \"https://images.unsplash.com/photo-1576244348464-c7d393b6dfc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1193&q=80\",\r\n    \"description\": \"Marseille, a port city in southern France, has been a crossroads of immigration and trade since its founding by the Greeks circa 600 B.C. At its heart is the Vieux-Port (Old Port), where fishmongers sell their catch along the boat-lined quay. Basilique Notre-Dame-de-la-Garde is a Romanesque-Byzantine church.\",\r\n    \"budget\": 12000,\r\n    \"accomodation\": 4000,\r\n    \"flights\": 4000,\r\n    \"meals\": 2000,\r\n    \"transport\": 2000,\r\n    \"exCode\": \"EUR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Trip",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"destName\": \"Marseille\",\r\n    \"location\": \"France\",\r\n    \"nationality\": \"French\",\r\n    \"imgSrc\": \"https://images.unsplash.com/photo-1576244348464-c7d393b6dfc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1193&q=80\",\r\n    \"description\": \"Marseille, a port city in southern France, has been a crossroads of immigration and trade since its founding by the Greeks circa 600 B.C. At its heart is the Vieux-Port (Old Port), where fishmongers sell their catch along the boat-lined quay. Basilique Notre-Dame-de-la-Garde is a Romanesque-Byzantine church.\",\r\n    \"budget\": 12000,\r\n    \"accomodation\": 4000,\r\n    \"flights\": 4000,\r\n    \"meals\": 2000,\r\n    \"transport\": 2000,\r\n    \"exCode\": \"EUR\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "51"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"33-bBgksOEtAaEohAHnnDRA4AHCGVM\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:17:35 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"You're not authorised\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Trip Which Already Exists",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+								"type": "text"
+							},
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"destName\": \"Alexandria\",\r\n  \"location\": \"Egypt\",\r\n  \"nationality\": \"Egyptian\",\r\n  \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\r\n  \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\r\n  \"budget\": 15000,\r\n  \"accomodation\": 5000,\r\n  \"flights\": 5000,\r\n  \"meals\": 3000,\r\n  \"transport\": 2000,\r\n  \"exCode\": \"EGP\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Trip Which Already Exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"destName\": \"Alexandria\",\r\n  \"location\": \"Egypt\",\r\n  \"nationality\": \"Egyptian\",\r\n  \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\r\n  \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\r\n  \"budget\": 15000,\r\n  \"accomodation\": 5000,\r\n  \"flights\": 5000,\r\n  \"meals\": 3000,\r\n  \"transport\": 2000,\r\n  \"exCode\": \"EGP\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "73"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"49-7xqdCGa60h+opr57r4tOB6tn/bc\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:45:24 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Error while creating trip! Please try again\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Trip Success",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3Mzg3MywiZXhwIjoxNjg0ODYwMjczfQ.o60JgMTzoa89KghzqV2YKmNauO6cyr_UsSn3HNK1Ugo",
+								"type": "text"
+							},
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"destName\": \"Alexandria\",\r\n  \"location\": \"Egypt\",\r\n  \"nationality\": \"Egyptian\",\r\n  \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\r\n  \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\r\n  \"budget\": 15000,\r\n  \"accomodation\": 5000,\r\n  \"flights\": 5000,\r\n  \"meals\": 3000,\r\n  \"transport\": 2000,\r\n  \"exCode\": \"EGP\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Trip Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3Mzg3MywiZXhwIjoxNjg0ODYwMjczfQ.o60JgMTzoa89KghzqV2YKmNauO6cyr_UsSn3HNK1Ugo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"destName\": \"Alexandria\",\r\n  \"location\": \"Egypt\",\r\n  \"nationality\": \"Egyptian\",\r\n  \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\r\n  \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\r\n  \"budget\": 15000,\r\n  \"accomodation\": 5000,\r\n  \"flights\": 5000,\r\n  \"meals\": 3000,\r\n  \"transport\": 2000,\r\n  \"exCode\": \"EGP\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1017"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3f9-fd6QT9ATgoJUOfAFerfnKb7ru20\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:36:26 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully created trip!\",\n    \"data\": {\n        \"destName\": \"Alexandria\",\n        \"location\": \"Egypt\",\n        \"nationality\": \"Egyptian\",\n        \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\n        \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\n        \"accomodation\": 5000,\n        \"flights\": 5000,\n        \"transport\": 2000,\n        \"meals\": 3000,\n        \"budget\": 15000,\n        \"exCode\": \"EGP\",\n        \"_id\": \"646b9a0a1cc65fe2781961d3\",\n        \"createdAt\": \"2023-05-22T16:36:26.885Z\",\n        \"updatedAt\": \"2023-05-22T16:36:26.885Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Trips",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Trip",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "13657"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3559-1cQ0edy6uLV5ff8QpgM78XyA3HI\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:36:10 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Fetched all trips!\",\n    \"data\": [\n        {\n            \"_id\": \"644165f968af286f7c14466e\",\n            \"destName\": \"London\",\n            \"location\": \"United Kingdom\",\n            \"nationality\": \"British\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its center stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex and the entire city.\",\n            \"budget\": 3000,\n            \"exCode\": \"GBP\",\n            \"createdAt\": \"2023-04-20T16:19:05.665Z\",\n            \"updatedAt\": \"2023-05-10T18:35:50.271Z\",\n            \"__v\": 0,\n            \"accomodation\": 1500,\n            \"flights\": 1000,\n            \"meals\": 250,\n            \"transport\": 250\n        },\n        {\n            \"_id\": \"6441660668af286f7c144670\",\n            \"destName\": \"New York City\",\n            \"location\": \"USA\",\n            \"nationality\": \"American\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"New York City is a global hub of international business and commerce, entertainment, fashion, and politics. Often referred to as just 'New York', the city is home to some of the world's most famous landmarks such as the Statue of Liberty, the Empire State Building, Central Park, and Times Square. New York City is a diverse and culturally rich city, with over 800 languages spoken by its inhabitants.\",\n            \"budget\": 5000,\n            \"exCode\": \"USD\",\n            \"createdAt\": \"2023-04-20T16:19:18.696Z\",\n            \"updatedAt\": \"2023-05-10T18:36:11.313Z\",\n            \"__v\": 0,\n            \"accomodation\": 1500,\n            \"flights\": 1500,\n            \"meals\": 1100,\n            \"transport\": 900\n        },\n        {\n            \"_id\": \"6441661268af286f7c144672\",\n            \"destName\": \"Paris\",\n            \"location\": \"France\",\n            \"nationality\": \"French\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80\",\n            \"description\": \"Paris, the capital of France, is known for its romantic atmosphere, delicious cuisine, and iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. The city is a hub for fashion, art, and culture, with a rich history spanning back thousands of years.\",\n            \"budget\": 4000,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-20T16:19:30.757Z\",\n            \"updatedAt\": \"2023-05-10T18:36:59.048Z\",\n            \"__v\": 0,\n            \"accomodation\": 2000,\n            \"flights\": 1000,\n            \"meals\": 600,\n            \"transport\": 400\n        },\n        {\n            \"_id\": \"6441661b68af286f7c144674\",\n            \"destName\": \"Athens\",\n            \"location\": \"Greece\",\n            \"nationality\": \"Greek\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"the birthplace of Western civilization and democracy. With over 3,400 years of history, Athens is widely known as one of the oldest cities in the world. Rich in culture and famous for its architecture, Athens is a must-visit destination for any traveler.\",\n            \"budget\": 5500,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-20T16:19:39.281Z\",\n            \"updatedAt\": \"2023-05-10T18:37:24.665Z\",\n            \"__v\": 0,\n            \"accomodation\": 2000,\n            \"flights\": 2000,\n            \"meals\": 500,\n            \"transport\": 1000\n        },\n        {\n            \"_id\": \"6441662a68af286f7c144676\",\n            \"destName\": \"Marrakesh\",\n            \"location\": \"Morocco\",\n            \"nationality\": \"Moroccan\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1597212618440-806262de4f6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80\",\n            \"description\": \"a vibrant city located in western Morocco, known for its beautiful architecture, bustling markets, and lively atmosphere. With its stunning riads, luxurious gardens, and exotic souks, Marrakesh is a perfect destination for anyone looking to explore Morocco's rich culture and history.\",\n            \"budget\": 3000,\n            \"exCode\": \"MAD\",\n            \"createdAt\": \"2023-04-20T16:19:54.590Z\",\n            \"updatedAt\": \"2023-05-10T18:38:01.035Z\",\n            \"__v\": 0,\n            \"accomodation\": 750,\n            \"flights\": 750,\n            \"meals\": 1000,\n            \"transport\": 500\n        },\n        {\n            \"_id\": \"6441663468af286f7c144678\",\n            \"destName\": \"Krakow\",\n            \"location\": \"Poland\",\n            \"nationality\": \"Polish\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1495181941197-70a606546974?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"a beautiful city located in southern Poland, known for its rich history, stunning architecture, and vibrant nightlife. With its historic old town, medieval castle, and beautiful parks, Krakow is a perfect destination for anyone looking to experience Poland's unique culture and history.\",\n            \"budget\": 4500,\n            \"exCode\": \"PLN\",\n            \"createdAt\": \"2023-04-20T16:20:04.381Z\",\n            \"updatedAt\": \"2023-05-10T18:38:29.681Z\",\n            \"__v\": 0,\n            \"accomodation\": 2000,\n            \"flights\": 1000,\n            \"meals\": 700,\n            \"transport\": 800\n        },\n        {\n            \"_id\": \"6441663a68af286f7c14467a\",\n            \"destName\": \"Madrid\",\n            \"location\": \"Spain\",\n            \"nationality\": \"Spanish\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"Madrid is Spain's central capital city and is famous for its artistic and cultural heritage. The city offers a rich mix of history, tradition, and modernity. There are numerous museums, art galleries, and monuments to visit and a vibrant nightlife to enjoy.\",\n            \"budget\": 3000,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-20T16:20:10.899Z\",\n            \"updatedAt\": \"2023-05-10T18:38:52.649Z\",\n            \"__v\": 0,\n            \"accomodation\": 1000,\n            \"flights\": 1000,\n            \"meals\": 300,\n            \"transport\": 700\n        },\n        {\n            \"_id\": \"6441664868af286f7c14467c\",\n            \"destName\": \"Bratislava\",\n            \"location\": \"Slovakia\",\n            \"nationality\": \"Slovak\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1620283110809-3ff3adfe057b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80\",\n            \"description\": \"Bratislava is the capital of Slovakia and lies on the banks of the Danube River. It is a city with a rich history and culture and offers visitors many things to see and do. There are numerous museums, galleries, and historical buildings to explore, as well as parks and gardens to enjoy.\",\n            \"budget\": 2000,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-20T16:20:24.640Z\",\n            \"updatedAt\": \"2023-05-10T18:39:48.044Z\",\n            \"__v\": 0,\n            \"accomodation\": 750,\n            \"flights\": 750,\n            \"meals\": 200,\n            \"transport\": 300\n        },\n        {\n            \"_id\": \"6441664f68af286f7c14467e\",\n            \"destName\": \"Bangkok\",\n            \"location\": \"Thailand\",\n            \"nationality\": \"Thai\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1508009603885-50cf7c579365?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80\",\n            \"description\": \"Bangkok is the capital and largest city of Thailand. It is a city of contrasts, with ancient temples and modern skyscrapers standing side by side. There are numerous cultural and historical sites to visit, as well as shopping malls and markets to explore. The city is also famous for its street food and nightlife.\",\n            \"budget\": 2500,\n            \"exCode\": \"THB\",\n            \"createdAt\": \"2023-04-20T16:20:31.571Z\",\n            \"updatedAt\": \"2023-05-10T18:40:17.096Z\",\n            \"__v\": 0,\n            \"accomodation\": 625,\n            \"flights\": 625,\n            \"meals\": 625,\n            \"transport\": 625\n        },\n        {\n            \"_id\": \"6441665768af286f7c144680\",\n            \"destName\": \"Hanoi\",\n            \"location\": \"Vietnam\",\n            \"nationality\": \"Vietnamese\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1509030450996-dd1a26dda07a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1223&q=80\",\n            \"description\": \"Hanoi is the capital and second-largest city of Vietnam. It is known for its rich history and culture, with many temples, pagodas, and historic sites to explore. The city is also famous for its street food and bustling markets.\",\n            \"budget\": 1800,\n            \"exCode\": \"VND\",\n            \"createdAt\": \"2023-04-20T16:20:39.255Z\",\n            \"updatedAt\": \"2023-05-10T18:41:01.701Z\",\n            \"__v\": 0,\n            \"accomodation\": 450,\n            \"flights\": 500,\n            \"meals\": 400,\n            \"transport\": 450\n        },\n        {\n            \"_id\": \"6441665e68af286f7c144682\",\n            \"destName\": \"Istanbul\",\n            \"location\": \"Turkey\",\n            \"nationality\": \"Turkish\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80\",\n            \"description\": \"Istanbul is a city that straddles two continents, Europe and Asia, and is known for its rich history and culture. It offers visitors a mix of modernity and tradition, with its ancient architecture, bustling markets, and vibrant street life. There are also numerous museums, palaces, and mosques to explore.\",\n            \"budget\": 3500,\n            \"exCode\": \"TRY\",\n            \"createdAt\": \"2023-04-20T16:20:46.220Z\",\n            \"updatedAt\": \"2023-05-10T18:41:40.356Z\",\n            \"__v\": 0,\n            \"accomodation\": 1000,\n            \"flights\": 1000,\n            \"meals\": 500,\n            \"transport\": 1000\n        },\n        {\n            \"_id\": \"6441666568af286f7c144684\",\n            \"destName\": \"Cairo\",\n            \"location\": \"Egypt\",\n            \"nationality\": \"Egyptian\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1626692880062-35c360fb6afc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"Cairo, Egypt's sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts. Nearby, Giza is the site of the iconic pyramids and Great Sphinx, dating to the 26th century BC. In Gezira Island's leafy Zamalek district, 187m Cairo Tower affords panoramic city views.\",\n            \"budget\": 6000,\n            \"exCode\": \"EGP\",\n            \"createdAt\": \"2023-04-20T16:20:53.891Z\",\n            \"updatedAt\": \"2023-05-10T18:42:44.061Z\",\n            \"__v\": 0,\n            \"accomodation\": 2100,\n            \"flights\": 1900,\n            \"meals\": 800,\n            \"transport\": 1200\n        },\n        {\n            \"_id\": \"6441666d68af286f7c144686\",\n            \"destName\": \"Rome\",\n            \"location\": \"Italy\",\n            \"nationality\": \"Italian\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1531572753322-ad063cecc140?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80\",\n            \"description\": \"Rome, Italy's capital, is a sprawling, cosmopolitan city with nearly 3,000 years of globally influential art, architecture and culture on display. Ancient ruins such as the Roman Forum and the Colosseum evoke the power of the former Roman Empire. Vatican City, headquarters of the Roman Catholic Church, has St. Peter’s Basilica and the Vatican Museums, which house masterpieces such as Michelangelo’s Sistine Chapel frescoes.\",\n            \"budget\": 8000,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-20T16:21:01.046Z\",\n            \"updatedAt\": \"2023-05-10T18:43:03.093Z\",\n            \"__v\": 0,\n            \"accomodation\": 2000,\n            \"flights\": 2000,\n            \"meals\": 2000,\n            \"transport\": 2000\n        },\n        {\n            \"_id\": \"6441667568af286f7c144688\",\n            \"destName\": \"Tokyo\",\n            \"location\": \"Japan\",\n            \"nationality\": \"Japanese\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1184&q=80\",\n            \"description\": \"Tokyo, Japan's busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding woods. The Imperial Palace sits amid large public gardens. The city's many museums offer exhibits ranging from classical art (in the Tokyo National Museum) to a reconstructed kabuki theater (in the Edo-Tokyo Museum).\",\n            \"budget\": 10000,\n            \"exCode\": \"JPY\",\n            \"createdAt\": \"2023-04-20T16:21:09.950Z\",\n            \"updatedAt\": \"2023-05-10T18:43:36.748Z\",\n            \"__v\": 0,\n            \"accomodation\": 5000,\n            \"flights\": 4000,\n            \"meals\": 300,\n            \"transport\": 700\n        },\n        {\n            \"_id\": \"6446e0922a596f71099933f0\",\n            \"destName\": \"Lisbon\",\n            \"location\": \"Portugal\",\n            \"nationality\": \"Portuguese\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1555881400-69a2384edcd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"Lisbon, the capital of Portugal, is a vibrant city full of history, culture, and stunning architecture. The city is known for its lively music scene, delicious food, and warm hospitality. With its charming narrow streets, colorful buildings, and breathtaking views of the Tagus River, Lisbon is a must-visit destination for anyone exploring Europe.\",\n            \"budget\": 3500,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-24T20:03:30.883Z\",\n            \"updatedAt\": \"2023-05-10T18:44:07.472Z\",\n            \"__v\": 0,\n            \"accomodation\": 875,\n            \"flights\": 875,\n            \"meals\": 875,\n            \"transport\": 875\n        },\n        {\n            \"_id\": \"645be9396c1c545f3931957b\",\n            \"destName\": \"Marseille\",\n            \"location\": \"France\",\n            \"nationality\": \"French\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1576244348464-c7d393b6dfc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1193&q=80\",\n            \"description\": \"Marseille, a port city in southern France, has been a crossroads of immigration and trade since its founding by the Greeks circa 600 B.C. At its heart is the Vieux-Port (Old Port), where fishmongers sell their catch along the boat-lined quay. Basilique Notre-Dame-de-la-Garde is a Romanesque-Byzantine church.\",\n            \"accomodation\": 4000,\n            \"flights\": 4000,\n            \"transport\": 2000,\n            \"meals\": 2000,\n            \"budget\": 12000,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-05-10T18:58:01.169Z\",\n            \"updatedAt\": \"2023-05-10T18:58:01.169Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"646b99b01cc65fe2781961c3\",\n            \"destName\": \"Alexandria\",\n            \"location\": \"Egypt\",\n            \"nationality\": \"Egyptian\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\n            \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\n            \"accomodation\": 5000,\n            \"flights\": 5000,\n            \"transport\": 2000,\n            \"meals\": 3000,\n            \"budget\": 15000,\n            \"exCode\": \"EGP\",\n            \"createdAt\": \"2023-05-22T16:34:56.329Z\",\n            \"updatedAt\": \"2023-05-22T16:34:56.329Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Single Trip With Invalid ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/thisisntarealid",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"thisisntarealid"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Single Trip With ID Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/thisisntarealid",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"thisisntarealid"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "62"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3e-pMggcCPkxt9CCzGLHAQ+JO87FK8\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:25:57 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Trip not found! Please try again\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Single Trip With ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/644165f968af286f7c14466e",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"644165f968af286f7c14466e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Trips Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/644165f968af286f7c14466e",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"644165f968af286f7c14466e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "945"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3b1-kipgNXyKV90px5Sa9jXkcLA2Icw\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:25:22 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully found trip!\",\n    \"data\": {\n        \"_id\": \"644165f968af286f7c14466e\",\n        \"destName\": \"London\",\n        \"location\": \"United Kingdom\",\n        \"nationality\": \"British\",\n        \"imgSrc\": \"https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n        \"description\": \"London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its center stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex and the entire city.\",\n        \"budget\": 3000,\n        \"exCode\": \"GBP\",\n        \"createdAt\": \"2023-04-20T16:19:05.665Z\",\n        \"updatedAt\": \"2023-05-10T18:35:50.271Z\",\n        \"__v\": 0,\n        \"accomodation\": 1500,\n        \"flights\": 1000,\n        \"meals\": 250,\n        \"transport\": 250\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Search For Trip By Location",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/search/getTripBySearch?location=egypt",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"search",
+								"getTripBySearch"
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "egypt"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search For Trip By Location",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/search/getTripBySearch?location=egypt",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"search",
+										"getTripBySearch"
+									],
+									"query": [
+										{
+											"key": "location",
+											"value": "egypt"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1859"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"743-vGNBjw1WSKgVnyYiglWxuYs8jPE\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:41:22 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successful\",\n    \"data\": [\n        {\n            \"_id\": \"6441666568af286f7c144684\",\n            \"destName\": \"Cairo\",\n            \"location\": \"Egypt\",\n            \"nationality\": \"Egyptian\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1626692880062-35c360fb6afc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"Cairo, Egypt's sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts. Nearby, Giza is the site of the iconic pyramids and Great Sphinx, dating to the 26th century BC. In Gezira Island's leafy Zamalek district, 187m Cairo Tower affords panoramic city views.\",\n            \"budget\": 6000,\n            \"exCode\": \"EGP\",\n            \"createdAt\": \"2023-04-20T16:20:53.891Z\",\n            \"updatedAt\": \"2023-05-10T18:42:44.061Z\",\n            \"__v\": 0,\n            \"accomodation\": 2100,\n            \"flights\": 1900,\n            \"meals\": 800,\n            \"transport\": 1200\n        },\n        {\n            \"_id\": \"646b9a0a1cc65fe2781961d3\",\n            \"destName\": \"Alexandria\",\n            \"location\": \"Egypt\",\n            \"nationality\": \"Egyptian\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\n            \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\n            \"accomodation\": 5000,\n            \"flights\": 5000,\n            \"transport\": 2000,\n            \"meals\": 3000,\n            \"budget\": 15000,\n            \"exCode\": \"EGP\",\n            \"createdAt\": \"2023-05-22T16:36:26.885Z\",\n            \"updatedAt\": \"2023-05-22T16:36:26.885Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Search For Trip By Budget",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/search/getTripBySearch?budget=4000",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"search",
+								"getTripBySearch"
+							],
+							"query": [
+								{
+									"key": "budget",
+									"value": "4000"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search For Trip By Budget",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/search/getTripBySearch?budget=4000",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"search",
+										"getTripBySearch"
+									],
+									"query": [
+										{
+											"key": "budget",
+											"value": "4000"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "6955"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"1b2b-kEq+cQBBuNMojIwU1OA7hPvLHQM\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:42:10 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successful\",\n    \"data\": [\n        {\n            \"_id\": \"644165f968af286f7c14466e\",\n            \"destName\": \"London\",\n            \"location\": \"United Kingdom\",\n            \"nationality\": \"British\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times. At its center stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides panoramic views of the South Bank cultural complex and the entire city.\",\n            \"budget\": 3000,\n            \"exCode\": \"GBP\",\n            \"createdAt\": \"2023-04-20T16:19:05.665Z\",\n            \"updatedAt\": \"2023-05-10T18:35:50.271Z\",\n            \"__v\": 0,\n            \"accomodation\": 1500,\n            \"flights\": 1000,\n            \"meals\": 250,\n            \"transport\": 250\n        },\n        {\n            \"_id\": \"6441661268af286f7c144672\",\n            \"destName\": \"Paris\",\n            \"location\": \"France\",\n            \"nationality\": \"French\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80\",\n            \"description\": \"Paris, the capital of France, is known for its romantic atmosphere, delicious cuisine, and iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. The city is a hub for fashion, art, and culture, with a rich history spanning back thousands of years.\",\n            \"budget\": 4000,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-20T16:19:30.757Z\",\n            \"updatedAt\": \"2023-05-10T18:36:59.048Z\",\n            \"__v\": 0,\n            \"accomodation\": 2000,\n            \"flights\": 1000,\n            \"meals\": 600,\n            \"transport\": 400\n        },\n        {\n            \"_id\": \"6441662a68af286f7c144676\",\n            \"destName\": \"Marrakesh\",\n            \"location\": \"Morocco\",\n            \"nationality\": \"Moroccan\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1597212618440-806262de4f6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80\",\n            \"description\": \"a vibrant city located in western Morocco, known for its beautiful architecture, bustling markets, and lively atmosphere. With its stunning riads, luxurious gardens, and exotic souks, Marrakesh is a perfect destination for anyone looking to explore Morocco's rich culture and history.\",\n            \"budget\": 3000,\n            \"exCode\": \"MAD\",\n            \"createdAt\": \"2023-04-20T16:19:54.590Z\",\n            \"updatedAt\": \"2023-05-10T18:38:01.035Z\",\n            \"__v\": 0,\n            \"accomodation\": 750,\n            \"flights\": 750,\n            \"meals\": 1000,\n            \"transport\": 500\n        },\n        {\n            \"_id\": \"6441663a68af286f7c14467a\",\n            \"destName\": \"Madrid\",\n            \"location\": \"Spain\",\n            \"nationality\": \"Spanish\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"Madrid is Spain's central capital city and is famous for its artistic and cultural heritage. The city offers a rich mix of history, tradition, and modernity. There are numerous museums, art galleries, and monuments to visit and a vibrant nightlife to enjoy.\",\n            \"budget\": 3000,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-20T16:20:10.899Z\",\n            \"updatedAt\": \"2023-05-10T18:38:52.649Z\",\n            \"__v\": 0,\n            \"accomodation\": 1000,\n            \"flights\": 1000,\n            \"meals\": 300,\n            \"transport\": 700\n        },\n        {\n            \"_id\": \"6441664868af286f7c14467c\",\n            \"destName\": \"Bratislava\",\n            \"location\": \"Slovakia\",\n            \"nationality\": \"Slovak\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1620283110809-3ff3adfe057b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80\",\n            \"description\": \"Bratislava is the capital of Slovakia and lies on the banks of the Danube River. It is a city with a rich history and culture and offers visitors many things to see and do. There are numerous museums, galleries, and historical buildings to explore, as well as parks and gardens to enjoy.\",\n            \"budget\": 2000,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-20T16:20:24.640Z\",\n            \"updatedAt\": \"2023-05-10T18:39:48.044Z\",\n            \"__v\": 0,\n            \"accomodation\": 750,\n            \"flights\": 750,\n            \"meals\": 200,\n            \"transport\": 300\n        },\n        {\n            \"_id\": \"6441664f68af286f7c14467e\",\n            \"destName\": \"Bangkok\",\n            \"location\": \"Thailand\",\n            \"nationality\": \"Thai\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1508009603885-50cf7c579365?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80\",\n            \"description\": \"Bangkok is the capital and largest city of Thailand. It is a city of contrasts, with ancient temples and modern skyscrapers standing side by side. There are numerous cultural and historical sites to visit, as well as shopping malls and markets to explore. The city is also famous for its street food and nightlife.\",\n            \"budget\": 2500,\n            \"exCode\": \"THB\",\n            \"createdAt\": \"2023-04-20T16:20:31.571Z\",\n            \"updatedAt\": \"2023-05-10T18:40:17.096Z\",\n            \"__v\": 0,\n            \"accomodation\": 625,\n            \"flights\": 625,\n            \"meals\": 625,\n            \"transport\": 625\n        },\n        {\n            \"_id\": \"6441665768af286f7c144680\",\n            \"destName\": \"Hanoi\",\n            \"location\": \"Vietnam\",\n            \"nationality\": \"Vietnamese\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1509030450996-dd1a26dda07a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1223&q=80\",\n            \"description\": \"Hanoi is the capital and second-largest city of Vietnam. It is known for its rich history and culture, with many temples, pagodas, and historic sites to explore. The city is also famous for its street food and bustling markets.\",\n            \"budget\": 1800,\n            \"exCode\": \"VND\",\n            \"createdAt\": \"2023-04-20T16:20:39.255Z\",\n            \"updatedAt\": \"2023-05-10T18:41:01.701Z\",\n            \"__v\": 0,\n            \"accomodation\": 450,\n            \"flights\": 500,\n            \"meals\": 400,\n            \"transport\": 450\n        },\n        {\n            \"_id\": \"6441665e68af286f7c144682\",\n            \"destName\": \"Istanbul\",\n            \"location\": \"Turkey\",\n            \"nationality\": \"Turkish\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80\",\n            \"description\": \"Istanbul is a city that straddles two continents, Europe and Asia, and is known for its rich history and culture. It offers visitors a mix of modernity and tradition, with its ancient architecture, bustling markets, and vibrant street life. There are also numerous museums, palaces, and mosques to explore.\",\n            \"budget\": 3500,\n            \"exCode\": \"TRY\",\n            \"createdAt\": \"2023-04-20T16:20:46.220Z\",\n            \"updatedAt\": \"2023-05-10T18:41:40.356Z\",\n            \"__v\": 0,\n            \"accomodation\": 1000,\n            \"flights\": 1000,\n            \"meals\": 500,\n            \"transport\": 1000\n        },\n        {\n            \"_id\": \"6446e0922a596f71099933f0\",\n            \"destName\": \"Lisbon\",\n            \"location\": \"Portugal\",\n            \"nationality\": \"Portuguese\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1555881400-69a2384edcd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"Lisbon, the capital of Portugal, is a vibrant city full of history, culture, and stunning architecture. The city is known for its lively music scene, delicious food, and warm hospitality. With its charming narrow streets, colorful buildings, and breathtaking views of the Tagus River, Lisbon is a must-visit destination for anyone exploring Europe.\",\n            \"budget\": 3500,\n            \"exCode\": \"EUR\",\n            \"createdAt\": \"2023-04-24T20:03:30.883Z\",\n            \"updatedAt\": \"2023-05-10T18:44:07.472Z\",\n            \"__v\": 0,\n            \"accomodation\": 875,\n            \"flights\": 875,\n            \"meals\": 875,\n            \"transport\": 875\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Search For Trip By Location and Budget",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/search/getTripBySearch?location=egypt&budget=7000",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"search",
+								"getTripBySearch"
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "egypt"
+								},
+								{
+									"key": "budget",
+									"value": "7000"
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search For Trip By Location and Budget",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/search/getTripBySearch?location=egypt&budget=7000",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"search",
+										"getTripBySearch"
+									],
+									"query": [
+										{
+											"key": "location",
+											"value": "egypt"
+										},
+										{
+											"key": "budget",
+											"value": "7000"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "904"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"388-IA06v0ZAqdakjJCqnPWTBteKJGo\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:43:04 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successful\",\n    \"data\": [\n        {\n            \"_id\": \"6441666568af286f7c144684\",\n            \"destName\": \"Cairo\",\n            \"location\": \"Egypt\",\n            \"nationality\": \"Egyptian\",\n            \"imgSrc\": \"https://images.unsplash.com/photo-1626692880062-35c360fb6afc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\n            \"description\": \"Cairo, Egypt's sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts. Nearby, Giza is the site of the iconic pyramids and Great Sphinx, dating to the 26th century BC. In Gezira Island's leafy Zamalek district, 187m Cairo Tower affords panoramic city views.\",\n            \"budget\": 6000,\n            \"exCode\": \"EGP\",\n            \"createdAt\": \"2023-04-20T16:20:53.891Z\",\n            \"updatedAt\": \"2023-05-10T18:42:44.061Z\",\n            \"__v\": 0,\n            \"accomodation\": 2100,\n            \"flights\": 1900,\n            \"meals\": 800,\n            \"transport\": 1200\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Trip With Invalid ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+								"type": "text"
+							},
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"accomodation\": 4000,\r\n        \"flights\": 5000,\r\n        \"transport\": 2000,\r\n        \"meals\": 3000,\r\n        \"budget\": 14000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/thisidisntreal",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"thisidisntreal"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Trip With ID Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"accomodation\": 4000,\r\n        \"flights\": 5000,\r\n        \"transport\": 2000,\r\n        \"meals\": 3000,\r\n        \"budget\": 14000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/thisidisntreal",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"thisidisntreal"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "73"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"49-WUJB7N9kXpcChthSow7y3MJkSII\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:30:51 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Error while updating trip! Please try again\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Trip With Invalid Fields",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+								"type": "text"
+							},
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"thisfieldisntreal\": \"Wow\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b961a1cc65fe2781961b4",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"646b961a1cc65fe2781961b4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Trip With Invalid ID Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"thisfieldisntreal\": \"Wow\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b961a1cc65fe2781961b4",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"646b961a1cc65fe2781961b4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1017"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3f9-LndIz8QvU9/HKPnhu3SgCowTJLs\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:33:28 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully updated trip!\",\n    \"data\": {\n        \"_id\": \"646b961a1cc65fe2781961b4\",\n        \"destName\": \"Alexandria\",\n        \"location\": \"Egypt\",\n        \"nationality\": \"Egyptian\",\n        \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\n        \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\n        \"accomodation\": 4000,\n        \"flights\": 5000,\n        \"transport\": 2000,\n        \"meals\": 3000,\n        \"budget\": 14000,\n        \"exCode\": \"EGP\",\n        \"createdAt\": \"2023-05-22T16:19:38.559Z\",\n        \"updatedAt\": \"2023-05-22T16:33:28.174Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Trip With ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+								"type": "text"
+							},
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"accomodation\": 4000,\r\n        \"flights\": 5000,\r\n        \"transport\": 2000,\r\n        \"meals\": 3000,\r\n        \"budget\": 14000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b961a1cc65fe2781961b4",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"646b961a1cc65fe2781961b4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Trip With ID",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"accomodation\": 4000,\r\n        \"flights\": 5000,\r\n        \"transport\": 2000,\r\n        \"meals\": 3000,\r\n        \"budget\": 14000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b961a1cc65fe2781961b4",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"646b961a1cc65fe2781961b4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1017"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"3f9-V7jHpjJOLGmISyUTdOAGGWE3dNA\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:29:06 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully updated trip!\",\n    \"data\": {\n        \"_id\": \"646b961a1cc65fe2781961b4\",\n        \"destName\": \"Alexandria\",\n        \"location\": \"Egypt\",\n        \"nationality\": \"Egyptian\",\n        \"imgSrc\": \"https://images.unsplash.com/photo-1594808815295-52034d585f56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80\",\n        \"description\": \"Alexandria is a port city located on the Mediterranean Sea in Egypt. It is known for its rich history and cultural heritage, including the ancient Library of Alexandria, which was one of the largest and most significant libraries of the ancient world. The city offers a blend of historic landmarks, beautiful beaches, and a vibrant atmosphere. Visitors can explore the Qaitbay Citadel, Catacombs of Kom El Shoqafa, and enjoy the lively Corniche promenade along the waterfront.\",\n        \"accomodation\": 4000,\n        \"flights\": 5000,\n        \"transport\": 2000,\n        \"meals\": 3000,\n        \"budget\": 14000,\n        \"exCode\": \"EGP\",\n        \"createdAt\": \"2023-05-22T16:19:38.559Z\",\n        \"updatedAt\": \"2023-05-22T16:29:06.771Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Trip With ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+								"type": "text"
+							},
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"accomodation\": 4000,\r\n        \"flights\": 5000,\r\n        \"transport\": 2000,\r\n        \"meals\": 3000,\r\n        \"budget\": 14000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b99b01cc65fe2781961c3",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"646b99b01cc65fe2781961c3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Trip With Invalid Fields Copy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"accomodation\": 4000,\r\n        \"flights\": 5000,\r\n        \"transport\": 2000,\r\n        \"meals\": 3000,\r\n        \"budget\": 14000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b99b01cc65fe2781961c3",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"646b99b01cc65fe2781961c3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "55"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"37-LQql5wsiyQYukxWxuOfPud4PV1w\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:36:22 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Successfully deleted trip!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Weather For Trip ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b9a0a1cc65fe2781961d3/getWeather",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"646b9a0a1cc65fe2781961d3",
+								"getWeather"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Trips Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b9a0a1cc65fe2781961d3/getWeather",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"646b9a0a1cc65fe2781961d3",
+										"getWeather"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "14"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"e-2uNUEdmnCI2PjebGnpPYIOIPCSg\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:36:37 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": 21.33\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Food For Trip ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b9a0a1cc65fe2781961d3/getFood",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"646b9a0a1cc65fe2781961d3",
+								"getFood"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Weather For Trip ID Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b9a0a1cc65fe2781961d3/getFood",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"646b9a0a1cc65fe2781961d3",
+										"getFood"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "26"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"1a-WhaXrYRAear1EwA3LTxGJvEcJhU\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:38:06 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"Egyptian Fatteh\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Exchange Rate For Trip ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "key",
+								"value": "$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b9a0a1cc65fe2781961d3/getExchange",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trips",
+								"646b9a0a1cc65fe2781961d3",
+								"getExchange"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Food For Trip ID Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/trips/646b9a0a1cc65fe2781961d3/getExchange",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"trips",
+										"646b9a0a1cc65fe2781961d3",
+										"getExchange"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"1-NWoZK3kTsExUV00Ywo1G5jlUKKs\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:38:29 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "1"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register For Already Taken Credentials",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxYWUwN2RkMzM2YzY4OTE1Y2ZlNTUwNCJ9LCJpYXQiOjE2Mzg4NzAwNzcsImV4cCI6MTYzOTQ3NDg3N30.G7WdL9uo-SlNmdTA7ul0d9rRJH_Yx3GUaHSgr3ZTjxY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin4\",\r\n    \"email\":\"admin4@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/auth/register",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin4\",\r\n    \"email\":\"admin4@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/auth/register",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 16:46:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7cb688919d5f11a5-MRS"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-Aa0tsp8T3ZLyqqsjr5F7ksfN/yY\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "Render"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=j1DdTHNuACx8UjHjpWFVXgPN653bml8iIw4.zqOE5vA-1684773968-0-AW8MUoXLGZcQXr+t+0cL8SW92oqXvFyJLx9oZjrdWCjxAeLtwmdRZmglt1LF0sL5gFoizX9EVTqrPNML4qLKR9A=; path=/; expires=Mon, 22-May-23 17:16:08 GMT; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_cfuvid=Hhx7fsDhlQaAs80rMSYsBon6ywDr2rDHh16DKnUgXHY-1684773968913-0-604800000; path=/; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Failed to create new user\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxYWUwN2RkMzM2YzY4OTE1Y2ZlNTUwNCJ9LCJpYXQiOjE2Mzg4NzAwNzcsImV4cCI6MTYzOTQ3NDg3N30.G7WdL9uo-SlNmdTA7ul0d9rRJH_Yx3GUaHSgr3ZTjxY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin4\",\r\n    \"email\":\"admin4@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/auth/register",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin4\",\r\n    \"email\":\"admin4@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/auth/register",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 16:43:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7cb684911df511a5-MRS"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-DgQCOzi58dsopbHhM6hZKCPSeLk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "Render"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=wgaDfPBXYiYBkrRxtEgz2VQEQEhrJ5aMppAC8lLBdBQ-1684773836-0-AZe7fmiM1RmJ03ByKwB2+wu8hDCtW0whG7u3GnsOnzOdiOLY3QNRJ4OuSYnPGcr4Vi2+g4raq0AdC4Az4WgG/IU=; path=/; expires=Mon, 22-May-23 17:13:56 GMT; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_cfuvid=.t2mI68gfbXnMcuHgb4.81djbLCniLYMcw4nT9J6_vI-1684773836422-0-604800000; path=/; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Succesfully created new user\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login For Non Existing Credentials",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"not\",\r\n    \"password\": \"real\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/auth/login",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"not\",\r\n    \"password\": \"real\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/auth/login",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 16:47:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7cb68a92a88c11a5-MRS"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-EAnCIFy1uGovyo/FU6KYwnjLgrc\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "Render"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=SGFCh4n0xOmpC8pm9_vjp516N1ctcvvrJvSEYxCIO40-1684774049-0-AQO6ezw07zMBPgYtgrhax63+BXsK/8K0JoLsl5WS6kQCFGuJbi4fVF0ykDyFJFBXA2FSNY627fRPlmkTZOEndSM=; path=/; expires=Mon, 22-May-23 17:17:29 GMT; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_cfuvid=jVNrZldMoKojac6WYfwr1zI729luMMdkOIUnc70YeWY-1684774049922-0-604800000; path=/; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/auth/login",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/auth/login",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 16:44:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Ray",
+									"value": "7cb6863b8d1f11a5-MRS"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"192-Ev2+FtzEv6RxhuUlOgsONeLEm9c\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3Mzg3MywiZXhwIjoxNjg0ODYwMjczfQ.o60JgMTzoa89KghzqV2YKmNauO6cyr_UsSn3HNK1Ugo; Path=/; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "__cf_bm=RWMWFDtCH9tOApWh69QC6gWEdUt9_1z4FTk1vXes0ZY-1684773873-0-AUTA/a3ktj2X+5a8794UEF0zeWe+dFVuzQ6pu0K1TbWFn0+3QuCWaWcoV8+CAzvmDPr4PgaYGv94YRcCAfPPw+Y=; path=/; expires=Mon, 22-May-23 17:14:33 GMT; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "_cfuvid=k0ehE1Jyq9hbkS5tXUy9NydgH0BBLmTx7OoydmcWVbw-1684773873215-0-604800000; path=/; domain=.onrender.com; HttpOnly; Secure; SameSite=None"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "x-render-origin-server",
+									"value": "Render"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3Mzg3MywiZXhwIjoxNjg0ODYwMjczfQ.o60JgMTzoa89KghzqV2YKmNauO6cyr_UsSn3HNK1Ugo\",\n    \"data\": {\n        \"saved\": [],\n        \"_id\": \"643ed18d147db7897e0699e3\",\n        \"username\": \"admin\",\n        \"email\": \"admin@admin.com\",\n        \"createdAt\": \"2023-04-18T17:21:17.722Z\",\n        \"updatedAt\": \"2023-04-18T17:21:17.722Z\",\n        \"__v\": 0\n    },\n    \"isAdmin\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/users/",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/users/",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1637"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"665-lftIAM4rMTKup+UeBIBC+RT+UiQ\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:47:36 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"saved\": [],\n            \"_id\": \"643ed18d147db7897e0699e3\",\n            \"username\": \"admin\",\n            \"email\": \"admin@admin.com\",\n            \"password\": \"$2a$10$9hzKa8JMvv0fxaZgCXse9uHbx.r.IImrCVlrZql0VcligDXOmO8Ii\",\n            \"isAdmin\": true,\n            \"createdAt\": \"2023-04-18T17:21:17.722Z\",\n            \"updatedAt\": \"2023-04-18T17:21:17.722Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6455397c8e38eea98c330d94\",\n            \"username\": \"admin2\",\n            \"email\": \"admin2@admin.com\",\n            \"password\": \"$2a$10$abc/.owYCe29..89MpIs6uhs1T6Gy7HJvTsOjAH0HcWmho5174UJS\",\n            \"isAdmin\": false,\n            \"saved\": [],\n            \"createdAt\": \"2023-05-05T17:14:36.070Z\",\n            \"updatedAt\": \"2023-05-05T17:14:36.070Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"645be1a47cd73ac2663d0630\",\n            \"username\": \"ads\",\n            \"email\": \"das@das.com\",\n            \"password\": \"$2a$10$Pl0byBsTn98XX.BbSr.Pwep31Qf6A2CMTv3ryX3UbRsEVYLfMkigW\",\n            \"isAdmin\": false,\n            \"saved\": [],\n            \"createdAt\": \"2023-05-10T18:25:40.070Z\",\n            \"updatedAt\": \"2023-05-10T18:25:40.070Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"645be25d6213806790d0c170\",\n            \"username\": \"newUser\",\n            \"email\": \"new@user.com\",\n            \"password\": \"$2a$10$lQy6C.d.f/UntC9OXSysGeC4tk7NKFHzXTqXlLxCAvvNbaDgdyCZ6\",\n            \"isAdmin\": true,\n            \"saved\": [],\n            \"createdAt\": \"2023-05-10T18:28:45.433Z\",\n            \"updatedAt\": \"2023-05-10T18:28:45.433Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6464cda41cc65fe27819615c\",\n            \"username\": \"test1203e0\",\n            \"email\": \"tesasd1e213@dsada.com\",\n            \"password\": \"$2a$10$/uH5MX1CUSuiEqWj8IG2AeMn7XXi0Iyu27DKVNymI2oFllrKru4C.\",\n            \"isAdmin\": true,\n            \"saved\": [],\n            \"createdAt\": \"2023-05-17T12:50:44.411Z\",\n            \"updatedAt\": \"2023-05-17T12:50:44.411Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"646b9bcc2db60c5643c558c9\",\n            \"username\": \"admin4\",\n            \"email\": \"admin4@admin.com\",\n            \"password\": \"$2a$10$VY/eV2.F6hX4C7u5Pl9QcuszMB77mPkoClpIVRUNEGQyCqUOBBx/S\",\n            \"isAdmin\": false,\n            \"saved\": [],\n            \"createdAt\": \"2023-05-22T16:43:56.203Z\",\n            \"updatedAt\": \"2023-05-22T16:43:56.203Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isAdmin\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/users/645be25d6213806790d0c170",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"645be25d6213806790d0c170"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"isAdmin\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/users/645be25d6213806790d0c170",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"645be25d6213806790d0c170"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "264"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"108-Lsg3DQQM5QNHQPVvFJ0ABIvMWXs\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:47:41 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"645be25d6213806790d0c170\",\n    \"username\": \"newUser\",\n    \"email\": \"new@user.com\",\n    \"password\": \"$2a$10$lQy6C.d.f/UntC9OXSysGeC4tk7NKFHzXTqXlLxCAvvNbaDgdyCZ6\",\n    \"isAdmin\": true,\n    \"saved\": [],\n    \"createdAt\": \"2023-05-10T18:28:45.433Z\",\n    \"updatedAt\": \"2023-05-22T16:47:41.415Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/users/645be25d6213806790d0c170",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"645be25d6213806790d0c170"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users Copy 2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VkMThkMTQ3ZGI3ODk3ZTA2OTllMyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NDc3MjI5MiwiZXhwIjoxNjg0ODU4NjkyfQ.RsFpgNterpl3sgTOEFD35UvOpRK12oPJLKNCcNR17ng",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/users/645be25d6213806790d0c170",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"645be25d6213806790d0c170"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "23"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"17-02fCbL+P0XAxdflMY+06yCcBmSU\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 16:47:44 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "\"User has been deleted\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Oauth",
+			"item": [
+				{
+					"name": "Get OAUTH Key",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "thisisclientkey",
+								"type": "text"
+							},
+							{
+								"key": "secret",
+								"value": "thisissecretkey",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://triphopper-production.up.railway.app/api/v1/oauth/key",
+							"protocol": "https",
+							"host": [
+								"triphopper-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"oauth",
+								"key"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get OAUTH Key",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "clientId",
+										"value": "thisisclientkey",
+										"type": "text"
+									},
+									{
+										"key": "secret",
+										"value": "thisissecretkey",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://triphopper-production.up.railway.app/api/v1/oauth/key",
+									"protocol": "https",
+									"host": [
+										"triphopper-production",
+										"up",
+										"railway",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"oauth",
+										"key"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "70"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"46-EAc34R/ETKmH3gRozRSbOHcHOao\""
+								},
+								{
+									"key": "date",
+									"value": "Mon, 22 May 2023 19:23:39 GMT"
+								},
+								{
+									"key": "server",
+									"value": "railway"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"key\": \"$2a$10$IbAqBfXEJhM5JGQ3i0HnHe8.xod92wvnU3z0pFuLD8gMwfYB.Fyra\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
